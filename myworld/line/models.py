@@ -2,6 +2,7 @@ from django.db import models
 
 class Members(models.Model):
   name = models.CharField(max_length=255)
+  gender = models.CharField(max_length=255)
   student_id = models.CharField(max_length=255)
   password = models.CharField(max_length=255)
   start_time = models.CharField(max_length=255)
@@ -23,3 +24,11 @@ class Members(models.Model):
   internal = models.CharField(max_length=255)
   surgery = models.CharField(max_length=255)
   gynecology = models.CharField(max_length=255)
+  pediatric = models.CharField(max_length=255)
+
+class Capacity(models.Model):
+    line = models.CharField(max_length=255)
+    unit = models.CharField(max_length=255)
+    hospital = models.CharField(max_length=255)
+    full = models.CharField(max_length=255)
+    remain = models.CharField(max_length=255)

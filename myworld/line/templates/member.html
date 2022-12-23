@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<br><br>
+<a href="{% url 'index' %}">first page</a>
+<br><br>
+<table border="1">
+{% for x in mymembers %}
+<tr>
+<td>{{ x.name }}</td>
+<td>{{ x.gender }}</td>
+<td>{{ x.start_time }}</td>
+<td>{{ x.end_time }}</td>
+<td>{{ x.line }}</td>
+<td>{{ x.health_dermatology_ent_one }}</td>
+<td>{{ x.health_dermatology_ent_two }}</td>
+<td>{{ x.health_dermatology_ent_three }}</td>
+<td>{{ x.anesthesia_emergency_ophthalmology_one }}</td>
+<td>{{ x.anesthesia_emergency_ophthalmology_two }}</td>
+<td>{{ x.anesthesia_emergency_ophthalmology_three }}</td>
+<td>{{ x.neurology_psychiatry_infectious_one }}</td>
+<td>{{ x.neurology_psychiatry_infectious_two }}</td>
+<td>{{ x.neurology_psychiatry_infectious_three }}</td>
+<td>{{ x.ethics_radiology_one  }}</td>
+<td>{{ x.ethics_radiology_two }}</td>
+<td>{{ x.orthopedics_urology_one }}</td>
+<td>{{ x.orthopedics_urology_two }}</td>
+<td>{{ x.internal }}</td>
+<td>{{ x.surgery }}</td>
+<td>{{ x.gynecology }}</td>
+<td>{{ x.pediatric }}</td>
+</tr>
+{% endfor %}
+</table>
+<br><br>
+<a href="{% url 'index' %}">first page</a>
+<br><br>
+</body>
+</html>
