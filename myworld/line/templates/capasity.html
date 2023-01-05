@@ -332,6 +332,7 @@ table.sheet0 tr.row98 { height:15.75pt }
 </head>
 
 <body>
+<a href="{% url 'index' %}">first page</a>
 <style>
 @page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
 body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
@@ -875,10 +876,23 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 </tr>
 </tbody>
 </table>
+<a href="{% url 'index' %}">first page</a>
 <script>
-for (let i = 1; i < 89; i++) {
-    let unit = document.getElementById(i).title
-    console.log(unit)
+var mycapacity = '{{ mycapacity }}'
+var unit;
+var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
+const data = JSON.parse(mycapacity_replaced);
+console.log(data)
+for (var i = 1 ; i < 89; i += 1) {
+  unit = document.getElementById(i).title;
+  var listOfObjects = [];
+  for (var l, k = 0; k < data.length; k += 1) {
+    l = data[k]["fields"]["unit"];
+    if (unit === l) {
+      listOfObjects.push(JSON.stringify(data[k]["fields"]));
+    }
+  }
+  document.getElementById(i).title = listOfObjects;
 }
 </script>
 </body>
