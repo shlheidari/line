@@ -337,6 +337,18 @@ table.sheet0 tr.row98 { height:15.75pt }
 @page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
 body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
 </style>
+
+<form name="form1" id="form1" >
+Line: <select name="subject" id="subject" onchange="fun(value)">
+    <option value="" selected="selected">Select line</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+  <br><br>
+</form>
+
 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
 <col class="col0">
 <col class="col1">
@@ -356,22 +368,16 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <col class="col15">
 <col class="col16">
 <col class="col17">
-<tbody>
+<tbody style="display:none;" id="A">
 <tr class="row0">
 <td class="column0 style1 s">01.10.17</td>
 <td class="column1 style1 s">01.10.22</td>
 <td id="1" title="98 A- A" class="column2 style7 s style8" colspan="4">98 A</td>
-<td id="2" title="98 B- B" class="column6 style6 s style8" colspan="4">98 B</td>
-<td id="3" title="98 C- C" class="column10 style6 s style8" colspan="4">98 C</td>
-<td id="4" title="98 D- D" class="column14 style6 s style8" colspan="4">98 D</td>
 </tr>
 <tr class="row1">
 <td class="column0 style2 s">01.11.22</td>
 <td class="column1 style3 s">01.11.27</td>
 <td id="5" title="رادیولوژی - A" class="column2 style9 s style14" colspan="4" rowspan="2">رادیولوژی </td>
-<td id="6" title="جراحی- B" class="column6 style15 s style23" colspan="4" rowspan="8">جراحی</td>
-<td id="7" title="داخلی- C" class="column10 style24 s style32" colspan="4" rowspan="16">داخلی</td>
-<td id="8" title="داخلی- D" class="column14 style24 s style32" colspan="4" rowspan="16">داخلی</td>
 </tr>
 <tr class="row2">
 <td class="column0 style1 s">01.11.29</td>
@@ -409,12 +415,10 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row9">
 <td class="column0 style2 s">02.02.09</td>
 <td class="column1 style3 s">02.02.14</td>
-<td class="column6 style48 s style50" colspan="4">***</td>
 </tr>
 <tr class="row10">
 <td class="column0 style2 s">02.02.16</td>
 <td class="column1 style3 s">02.02.21</td>
-<td id="13" title="رادیولوژی - B" class="column6 style9 s style14" colspan="4" rowspan="2">رادیولوژی </td>
 </tr>
 <tr class="row11">
 <td class="column0 style2 s">02.02.23</td>
@@ -429,6 +433,431 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style2 s">02.03.06</td>
 <td class="column1 style2 s">02.03.11</td>
 <td id="14" title="جراحی- A" class="column2 style15 s style23" colspan="4" rowspan="8">جراحی</td>
+</tr>
+<tr class="row14">
+<td class="column0 style1 s">02.03.13</td>
+<td class="column1 style1 s">02.03.18</td>
+</tr>
+<tr class="row15">
+<td class="column0 style1 s">02.03.20</td>
+<td class="column1 style1 s">02.03.25</td>
+</tr>
+<tr class="row16">
+<td class="column0 style1 s">02.03.27</td>
+<td class="column1 style1 s">02.04.01</td>
+</tr>
+<tr class="row17">
+<td class="column0 style1 s">02.04.03</td>
+<td class="column1 style1 s">02.04.08</td>
+</tr>
+<tr class="row18">
+<td class="column0 style1 s">02.04.10</td>
+<td class="column1 style1 s">02.04.15</td>
+</tr>
+<tr class="row19">
+<td class="column0 style1 s">02.04.17</td>
+<td class="column1 style1 s">02.04.22</td>
+</tr>
+<tr class="row20">
+<td class="column0 style1 s">02.04.24</td>
+<td class="column1 style1 s">02.04.29</td>
+</tr>
+<tr class="row21">
+<td class="column0 style1 s">02.04.31</td>
+<td class="column1 style1 s">02.05.05</td>
+<td class="column2 style45 s style47" colspan="8">آزمون ارتوپدی و ارولوژی</td>
+</tr>
+<tr class="row22">
+<td class="column0 style1 s">02.05.07</td>
+<td class="column1 style1 s">02.05.12</td>
+<td class="column2 style45 s style47" colspan="8">آزمون جراحی و جراحی اعصاب</td>
+</tr>
+<tr class="row23">
+<td class="column0 style1 s">02.05.14</td>
+<td class="column1 style1 s">02.05.19</td>
+<td class="column2 style48 s style50" colspan="4">***</td>
+</tr>
+<tr class="row24">
+<td class="column0 style1 s">02.05.21</td>
+<td class="column1 style1 s">02.05.26</td>
+<td id="26" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row25">
+<td class="column0 style1 s">02.05.28</td>
+<td class="column1 style1 s">02.06.02</td>
+</tr>
+<tr class="row26">
+<td class="column0 style1 s">02.06.04</td>
+<td class="column1 style1 s">02.06.09</td>
+<td id="28" title="داخلی- A" class="column2 style69 s style32" colspan="4" rowspan="16">داخلی</td>
+</tr>
+<tr class="row27">
+<td class="column0 style1 s">02.06.11</td>
+<td class="column1 style1 s">02.06.16</td>
+</tr>
+<tr class="row28">
+<td class="column0 style1 s">02.06.18</td>
+<td class="column1 style1 s">02.06.23</td>
+</tr>
+<tr class="row29">
+<td class="column0 style1 s">02.06.25</td>
+<td class="column1 style1 s">02.06.30</td>
+</tr>
+<tr class="row30">
+<td class="column0 style1 s">02.07.01</td>
+<td class="column1 style1 s">02.07.06</td>
+</tr>
+<tr class="row31">
+<td class="column0 style1 s">02.07.08</td>
+<td class="column1 style1 s">02.07.13</td>
+</tr>
+<tr class="row32">
+<td class="column0 style1 s">02.07.15</td>
+<td class="column1 style1 s">02.07.20</td>
+</tr>
+<tr class="row33">
+<td class="column0 style1 s">02.07.22</td>
+<td class="column1 style1 s">02.07.27</td>
+</tr>
+<tr class="row34">
+<td class="column0 style1 s">02.07.29</td>
+<td class="column1 style1 s">02.08.04</td>
+</tr>
+<tr class="row35">
+<td class="column0 style1 s">02.08.06</td>
+<td class="column1 style1 s">02.08.11</td>
+</tr>
+<tr class="row36">
+<td class="column0 style1 s">02.08.13</td>
+<td class="column1 style1 s">02.08.18</td>
+</tr>
+<tr class="row37">
+<td class="column0 style1 s">02.08.20</td>
+<td class="column1 style1 s">02.08.25</td>
+</tr>
+<tr class="row38">
+<td class="column0 style1 s">02.08.27</td>
+<td class="column1 style1 s">02.09.02</td>
+</tr>
+<tr class="row39">
+<td class="column0 style1 s">02.09.04</td>
+<td class="column1 style1 s">02.09.09</td>
+</tr>
+<tr class="row40">
+<td class="column0 style1 s">02.09.11</td>
+<td class="column1 style1 s">02.09.16</td>
+</tr>
+<tr class="row41">
+<td class="column0 style1 s">02.09.18</td>
+<td class="column1 style1 s">02.09.23</td>
+</tr>
+<tr class="row42">
+<td class="column0 style1 s">02.09.25</td>
+<td class="column1 style1 s">02.09.30</td>
+<td class="column2 style115 s style47" colspan="4">آزمون داخلی</td>
+</tr>
+<tr class="row43">
+<td class="column0 style1 s">02.10.02</td>
+<td class="column1 style4 s">02.10.07</td>
+<td id="39" title="اخلاق پزشکی - A" class="column2 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
+</tr>
+<tr class="row44">
+<td class="column0 style1 s">02.10.09</td>
+<td class="column1 style4 s">02.10.14</td>
+</tr>
+<tr class="row45">
+<td class="column0 style1 s">02.10.16</td>
+<td class="column1 style4 s">02.10.21</td>
+<td id="42" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row46">
+<td class="column0 style1 s">02.10.23</td>
+<td class="column1 style4 s">02.10.28</td>
+</tr>
+<tr class="row47">
+<td class="column0 style1 s">02.10.30</td>
+<td class="column1 style4 s">02.11.05</td>
+<td class="column2 style45 s style47" colspan="8">آزمون اخلاق پزشکی </td>
+</tr>
+<tr class="row48">
+<td class="column0 style1 s">02.11.07</td>
+<td class="column1 style1 s">02.11.12</td>
+<td id="45" title="روانپزشکی / نورولوژی- A" class="column2 style91 s style93" colspan="4">روانپزشکی / نورولوژی</td>
+</tr>
+<tr class="row49">
+<td class="column0 style1 s">02.11.14</td>
+<td class="column1 style1 s">02.11.19</td>
+<td id="47" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row50">
+<td class="column0 style1 s">02.11.21</td>
+<td class="column1 style4 s">02.11.26</td>
+</tr>
+<tr class="row51">
+<td class="column0 style1 s">02.11.28</td>
+<td class="column1 style4 s">02.12.03</td>
+<td id="51" title="عفونی- A" class="column2 style112 s style114" colspan="4">عفونی</td>
+</tr>
+<tr class="row52">
+<td class="column0 style1 s">02.12.05</td>
+<td class="column1 style1 s">02.12.10</td>
+<td class="column2 style72 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
+</tr>
+<tr class="row53">
+<td class="column0 style1 s">02.12.12</td>
+<td class="column1 style1 s">02.12.17</td>
+<td id="53" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row54">
+<td class="column0 style1 s">02.12.19</td>
+<td class="column1 style1 s">02.12.24</td>
+</tr>
+<tr class="row55">
+<td class="column0 style1 s">02.12.26</td>
+<td class="column1 style1 s">02.12.29</td>
+</tr>
+<tr class="row56">
+<td class="column0 style5 s">03.01.18</td>
+<td class="column1 style1 s">03.01.23</td>
+</tr>
+<tr class="row57">
+<td class="column0 style1 s">03.01.25</td>
+<td class="column1 style1 s">03.01.30</td>
+<td id="55" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row58">
+<td class="column0 style1 s">03.02.01</td>
+<td class="column1 style1 s">03.02.06</td>
+</tr>
+<tr class="row59">
+<td class="column0 style1 s">03.02.08</td>
+<td class="column1 style4 s">03.02.13</td>
+</tr>
+<tr class="row60">
+<td class="column0 style1 s">03.02.15</td>
+<td class="column1 style4 s">03.02.20</td>
+</tr>
+<tr class="row61">
+<td class="column0 style1 s">03.02.22</td>
+<td class="column1 style4 s">03.02.27</td>
+<td id="58" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row62">
+<td class="column0 style1 s">03.02.29</td>
+<td class="column1 style4 s">03.03.03</td>
+</tr>
+<tr class="row63">
+<td class="column0 style1 s">03.03.05</td>
+<td class="column1 style4 s">03.03.10</td>
+</tr>
+<tr class="row64">
+<td class="column0 style1 s">03.03.12</td>
+<td class="column1 style4 s">03.03.17</td>
+</tr>
+<tr class="row65">
+<td class="column0 style1 s">03.03.19</td>
+<td class="column1 style4 s">03.03.24</td>
+<td id="63" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row66">
+<td class="column0 style1 s">03.03.26</td>
+<td class="column1 style4 s">03.03.31</td>
+</tr>
+<tr class="row67">
+<td class="column0 style1 s">03.04.02</td>
+<td class="column1 style4 s">03.04.07</td>
+</tr>
+<tr class="row68">
+<td class="column0 style1 s">03.04.09</td>
+<td class="column1 style4 s">03.04.14</td>
+</tr>
+<tr class="row69">
+<td class="column0 style1 s">03.04.16</td>
+<td class="column1 style4 s">03.04.21</td>
+<td class="column2 style45 s style47" colspan="4">آزمون عفونی</td>
+</tr>
+<tr class="row70">
+<td class="column0 style1 s">03.04.23</td>
+<td class="column1 style4 s">03.04.28</td>
+<td id="66" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row71">
+<td class="column0 style1 s">03.04.30</td>
+<td class="column1 style4 s">03.05.04</td>
+</tr>
+<tr class="row72">
+<td class="column0 style1 s">03.05.06</td>
+<td class="column1 style4 s">03.05.11</td>
+</tr>
+<tr class="row73">
+<td class="column0 style1 s">03.05.13</td>
+<td class="column1 style4 s">03.05.18</td>
+</tr>
+<tr class="row74">
+<td class="column0 style1 s">03.05.20</td>
+<td class="column1 style4 s">03.05.25</td>
+<td id="69" title="کودکان- A" class="column2 style94 s style102" colspan="4" rowspan="12">کودکان</td>
+</tr>
+<tr class="row75">
+<td class="column0 style1 s">03.05.27</td>
+<td class="column1 style4 s">03.06.01</td>
+</tr>
+<tr class="row76">
+<td class="column0 style1 s">03.06.03</td>
+<td class="column1 style4 s">03.06.08</td>
+</tr>
+<tr class="row77">
+<td class="column0 style1 s">03.06.10</td>
+<td class="column1 style4 s">03.06.15</td>
+</tr>
+<tr class="row78">
+<td class="column0 style1 s">03.06.17</td>
+<td class="column1 style4 s">03.06.22</td>
+</tr>
+<tr class="row79">
+<td class="column0 style1 s">03.06.24</td>
+<td class="column1 style4 s">03.06.29</td>
+</tr>
+<tr class="row80">
+<td class="column0 style1 s">03.06.31</td>
+<td class="column1 style4 s">03.07.05</td>
+</tr>
+<tr class="row81">
+<td class="column0 style1 s">03.07.07</td>
+<td class="column1 style4 s">03.07.12</td>
+</tr>
+<tr class="row82">
+<td class="column0 style1 s">03.07.14</td>
+<td class="column1 style1 s">03.07.19</td>
+</tr>
+<tr class="row83">
+<td class="column0 style1 s">03.07.21</td>
+<td class="column1 style1 s">03.07.26</td>
+</tr>
+<tr class="row84">
+<td class="column0 style1 s">03.07.28</td>
+<td class="column1 style1 s">03.08.03</td>
+</tr>
+<tr class="row85">
+<td class="column0 style1 s">03.08.05</td>
+<td class="column1 style1 s">03.08.10</td>
+</tr>
+<tr class="row86">
+<td class="column0 style1 s">03.08.12</td>
+<td class="column1 style1 s">03.08.17</td>
+<td class="column2 style48 s style50" colspan="4">***</td>
+</tr>
+<tr class="row87">
+<td class="column0 style1 s">03.08.19</td>
+<td class="column1 style1 s">03.08.24</td>
+<td id="82" title="زنان- A" class="column2 style103 s style111" colspan="4" rowspan="8">زنان</td>
+</tr>
+<tr class="row88">
+<td class="column0 style1 s">03.08.26</td>
+<td class="column1 style1 s">03.09.01</td>
+</tr>
+<tr class="row89">
+<td class="column0 style1 s">03.09.03</td>
+<td class="column1 style1 s">03.09.08</td>
+</tr>
+<tr class="row90">
+<td class="column0 style1 s">03.09.10</td>
+<td class="column1 style1 s">03.09.15</td>
+</tr>
+<tr class="row91">
+<td class="column0 style1 s">03.09.17</td>
+<td class="column1 style1 s">03.09.22</td>
+</tr>
+<tr class="row92">
+<td class="column0 style1 s">03.09.24</td>
+<td class="column1 style1 s">03.09.29</td>
+</tr>
+<tr class="row93">
+<td class="column0 style1 s">03.10.01</td>
+<td class="column1 style1 s">03.10.06</td>
+</tr>
+<tr class="row94">
+<td class="column0 style1 s">03.10.08</td>
+<td class="column1 style1 s">03.10.13</td>
+</tr>
+<tr class="row95">
+<td class="column0 style1 s">03.10.15</td>
+<td class="column1 style1 s">03.10.20</td>
+<td id="88" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row96">
+<td class="column0 style1 s">03.10.22</td>
+<td class="column1 style1 s">03.10.27</td>
+</tr>
+<tr class="row97">
+<td class="column0 style1 s">03.10.29</td>
+<td class="column1 style1 s">03.11.04</td>
+</tr>
+<tr class="row98">
+<td class="column0 style1 s">03.11.06</td>
+<td class="column1 style1 s">03.11.11</td>
+</tr>
+</tbody>
+<tbody style="display:none;" id="B">
+<tr class="row0">
+<td class="column0 style1 s">01.10.17</td>
+<td class="column1 style1 s">01.10.22</td>
+<td id="2" title="98 B- B" class="column6 style6 s style8" colspan="4">98 B</td>
+</tr>
+<tr class="row1">
+<td class="column0 style2 s">01.11.22</td>
+<td class="column1 style3 s">01.11.27</td>
+<td id="6" title="جراحی- B" class="column6 style15 s style23" colspan="4" rowspan="8">جراحی</td>
+</tr>
+<tr class="row2">
+<td class="column0 style1 s">01.11.29</td>
+<td class="column1 style4 s">01.12.04</td>
+</tr>
+<tr class="row3">
+<td class="column0 style2 s">01.12.06</td>
+<td class="column1 style3 s">01.12.11</td>
+</tr>
+<tr class="row4">
+<td class="column0 style2 s">01.12.13</td>
+<td class="column1 style3 s">01.12.8</td>
+</tr>
+<tr class="row5">
+<td class="column0 style2 s">01.12.20</td>
+<td class="column1 style3 s">01.12.25</td>
+</tr>
+<tr class="row6">
+<td class="column0 style2 s">02.01.19</td>
+<td class="column1 style3 s">02.01.24</td>
+</tr>
+<tr class="row7">
+<td class="column0 style2 s">02.01.26</td>
+<td class="column1 style3 s">02.01.31</td>
+</tr>
+<tr class="row8">
+<td class="column0 style2 s">02.02.02</td>
+<td class="column1 style3 s">02.02.07</td>
+</tr>
+<tr class="row9">
+<td class="column0 style2 s">02.02.09</td>
+<td class="column1 style3 s">02.02.14</td>
+<td class="column6 style48 s style50" colspan="4">***</td>
+</tr>
+<tr class="row10">
+<td class="column0 style2 s">02.02.16</td>
+<td class="column1 style3 s">02.02.21</td>
+<td id="13" title="رادیولوژی - B" class="column6 style9 s style14" colspan="4" rowspan="2">رادیولوژی </td>
+</tr>
+<tr class="row11">
+<td class="column0 style2 s">02.02.23</td>
+<td class="column1 style3 s">02.02.28</td>
+</tr>
+<tr class="row12">
+<td class="column0 style2 s">02.02.30</td>
+<td class="column1 style2 s">02.03.04</td>
+</tr>
+<tr class="row13">
+<td class="column0 style2 s">02.03.06</td>
+<td class="column1 style2 s">02.03.11</td>
 <td id="15" title="ارولوژی- B" class="column6 style33 s style38" colspan="2" rowspan="4">ارولوژی</td>
 <td id="16" title="ارتوپدی- B" class="column8 style39 s style44" colspan="2" rowspan="4">ارتوپدی</td>
 </tr>
@@ -449,14 +878,10 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column1 style1 s">02.04.08</td>
 <td id="17" title="ارتوپدی- B" class="column6 style39 s style44" colspan="2" rowspan="4">ارتوپدی</td>
 <td id="18" title="ارولوژی- B" class="column8 style33 s style38" colspan="2" rowspan="4">ارولوژی</td>
-<td class="column10 style45 s style47" colspan="4">آزمون داخلی</td>
-<td class="column14 style45 s style47" colspan="4">آزمون داخلی</td>
 </tr>
 <tr class="row18">
 <td class="column0 style1 s">02.04.10</td>
 <td class="column1 style1 s">02.04.15</td>
-<td id="19" title="اخلاق پزشکی - C" class="column10 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
-<td id="20" title="رادیولوژی - D" class="column14 style9 s style13" colspan="4" rowspan="2">رادیولوژی </td>
 </tr>
 <tr class="row19">
 <td class="column0 style1 s">02.04.17</td>
@@ -465,33 +890,23 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row20">
 <td class="column0 style1 s">02.04.24</td>
 <td class="column1 style1 s">02.04.29</td>
-<td id="21" title="رادیولوژی - C" class="column10 style9 s style14" colspan="4" rowspan="2">رادیولوژی </td>
-<td id="22" title="اخلاق پزشکی - D" class="column14 style9 s style13" colspan="4" rowspan="2">اخلاق پزشکی </td>
 </tr>
 <tr class="row21">
 <td class="column0 style1 s">02.04.31</td>
 <td class="column1 style1 s">02.05.05</td>
-<td class="column2 style45 s style47" colspan="8">آزمون ارتوپدی و ارولوژی</td>
 </tr>
 <tr class="row22">
 <td class="column0 style1 s">02.05.07</td>
 <td class="column1 style1 s">02.05.12</td>
-<td class="column2 style45 s style47" colspan="8">آزمون جراحی و جراحی اعصاب</td>
-<td class="column10 style45 s style46" colspan="8">آزمون اخلاق پزشکی و رادیولوژی</td>
 </tr>
 <tr class="row23">
 <td class="column0 style1 s">02.05.14</td>
 <td class="column1 style1 s">02.05.19</td>
-<td class="column2 style48 s style50" colspan="4">***</td>
 <td class="column6 style48 s style50" colspan="4">***</td>
-<td id="23" title="جراحی- C" class="column10 style15 s style23" colspan="4" rowspan="8">جراحی</td>
-<td id="24" title="ارتوپدی- D" class="column14 style51 s style56" colspan="2" rowspan="4">ارتوپدی</td>
-<td id="25" title="ارولوژی- D" class="column16 style57 s style62" colspan="2" rowspan="4">ارولوژی</td>
 </tr>
 <tr class="row24">
 <td class="column0 style1 s">02.05.21</td>
 <td class="column1 style1 s">02.05.26</td>
-<td id="26" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 <td id="27" title="بیهوشی / طب اورژانس/ چشم- B" class="column6 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 </tr>
 <tr class="row25">
@@ -501,14 +916,433 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row26">
 <td class="column0 style1 s">02.06.04</td>
 <td class="column1 style1 s">02.06.09</td>
-<td id="28" title="داخلی- A" class="column2 style69 s style32" colspan="4" rowspan="16">داخلی</td>
 <td id="29" title="داخلی- B" class="column6 style24 s style32" colspan="4" rowspan="16">داخلی</td>
 </tr>
 <tr class="row27">
 <td class="column0 style1 s">02.06.11</td>
 <td class="column1 style1 s">02.06.16</td>
-<td id="30" title="ارولوژی- D" class="column14 style57 s style62" colspan="2" rowspan="4">ارولوژی</td>
-<td id="31" title="ارتوپدی- D" class="column16 style51 s style56" colspan="2" rowspan="4">ارتوپدی</td>
+</tr>
+<tr class="row28">
+<td class="column0 style1 s">02.06.18</td>
+<td class="column1 style1 s">02.06.23</td>
+</tr>
+<tr class="row29">
+<td class="column0 style1 s">02.06.25</td>
+<td class="column1 style1 s">02.06.30</td>
+</tr>
+<tr class="row30">
+<td class="column0 style1 s">02.07.01</td>
+<td class="column1 style1 s">02.07.06</td>
+</tr>
+<tr class="row31">
+<td class="column0 style1 s">02.07.08</td>
+<td class="column1 style1 s">02.07.13</td>
+</tr>
+<tr class="row32">
+<td class="column0 style1 s">02.07.15</td>
+<td class="column1 style1 s">02.07.20</td>
+</tr>
+<tr class="row33">
+<td class="column0 style1 s">02.07.22</td>
+<td class="column1 style1 s">02.07.27</td>
+</tr>
+<tr class="row34">
+<td class="column0 style1 s">02.07.29</td>
+<td class="column1 style1 s">02.08.04</td>
+</tr>
+<tr class="row35">
+<td class="column0 style1 s">02.08.06</td>
+<td class="column1 style1 s">02.08.11</td>
+</tr>
+<tr class="row36">
+<td class="column0 style1 s">02.08.13</td>
+<td class="column1 style1 s">02.08.18</td>
+</tr>
+<tr class="row37">
+<td class="column0 style1 s">02.08.20</td>
+<td class="column1 style1 s">02.08.25</td>
+</tr>
+<tr class="row38">
+<td class="column0 style1 s">02.08.27</td>
+<td class="column1 style1 s">02.09.02</td>
+</tr>
+<tr class="row39">
+<td class="column0 style1 s">02.09.04</td>
+<td class="column1 style1 s">02.09.09</td>
+</tr>
+<tr class="row40">
+<td class="column0 style1 s">02.09.11</td>
+<td class="column1 style1 s">02.09.16</td>
+</tr>
+<tr class="row41">
+<td class="column0 style1 s">02.09.18</td>
+<td class="column1 style1 s">02.09.23</td>
+</tr>
+<tr class="row42">
+<td class="column0 style1 s">02.09.25</td>
+<td class="column1 style1 s">02.09.30</td>
+<td class="column6 style45 s style47" colspan="4">آزمون داخلی</td>
+</tr>
+<tr class="row43">
+<td class="column0 style1 s">02.10.02</td>
+<td class="column1 style4 s">02.10.07</td>
+<td id="40" title="بیهوشی / طب اورژانس/ چشم- B" class="column6 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row44">
+<td class="column0 style1 s">02.10.09</td>
+<td class="column1 style4 s">02.10.14</td>
+</tr>
+<tr class="row45">
+<td class="column0 style1 s">02.10.16</td>
+<td class="column1 style4 s">02.10.21</td>
+<td id="43" title="اخلاق پزشکی - B" class="column6 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
+</tr>
+<tr class="row46">
+<td class="column0 style1 s">02.10.23</td>
+<td class="column1 style4 s">02.10.28</td>
+</tr>
+<tr class="row47">
+<td class="column0 style1 s">02.10.30</td>
+<td class="column1 style4 s">02.11.05</td>
+</tr>
+<tr class="row48">
+<td class="column0 style1 s">02.11.07</td>
+<td class="column1 style1 s">02.11.12</td>
+<td id="46" title="روانپزشکی / نورولوژی- B" class="column6 style91 s style93" colspan="4">روانپزشکی / نورولوژی</td>
+</tr>
+<tr class="row49">
+<td class="column0 style1 s">02.11.14</td>
+<td class="column1 style1 s">02.11.19</td>
+<td id="48" title="بیهوشی / طب اورژانس/ چشم- B" class="column6 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row50">
+<td class="column0 style1 s">02.11.21</td>
+<td class="column1 style4 s">02.11.26</td>
+</tr>
+<tr class="row51">
+<td class="column0 style1 s">02.11.28</td>
+<td class="column1 style4 s">02.12.03</td>
+<td id="52" title="عفونی- B" class="column6 style112 s style114" colspan="4">عفونی</td>
+</tr>
+<tr class="row52">
+<td class="column0 style1 s">02.12.05</td>
+<td class="column1 style1 s">02.12.10</td>
+<td class="column6 style72 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
+</tr>
+<tr class="row53">
+<td class="column0 style1 s">02.12.12</td>
+<td class="column1 style1 s">02.12.17</td>
+<td id="54" title="نورولوژی / روانپزشکی / عفونی- B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی</td>
+</tr>
+<tr class="row54">
+<td class="column0 style1 s">02.12.19</td>
+<td class="column1 style1 s">02.12.24</td>
+</tr>
+<tr class="row55">
+<td class="column0 style1 s">02.12.26</td>
+<td class="column1 style1 s">02.12.29</td>
+</tr>
+<tr class="row56">
+<td class="column0 style5 s">03.01.18</td>
+<td class="column1 style1 s">03.01.23</td>
+</tr>
+<tr class="row57">
+<td class="column0 style1 s">03.01.25</td>
+<td class="column1 style1 s">03.01.30</td>
+<td id="56" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row58">
+<td class="column0 style1 s">03.02.01</td>
+<td class="column1 style1 s">03.02.06</td>
+</tr>
+<tr class="row59">
+<td class="column0 style1 s">03.02.08</td>
+<td class="column1 style4 s">03.02.13</td>
+</tr>
+<tr class="row60">
+<td class="column0 style1 s">03.02.15</td>
+<td class="column1 style4 s">03.02.20</td>
+</tr>
+<tr class="row61">
+<td class="column0 style1 s">03.02.22</td>
+<td class="column1 style4 s">03.02.27</td>
+<td id="59" title="نورولوژی / روانپزشکی / عفونی   - B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row62">
+<td class="column0 style1 s">03.02.29</td>
+<td class="column1 style4 s">03.03.03</td>
+</tr>
+<tr class="row63">
+<td class="column0 style1 s">03.03.05</td>
+<td class="column1 style4 s">03.03.10</td>
+</tr>
+<tr class="row64">
+<td class="column0 style1 s">03.03.12</td>
+<td class="column1 style4 s">03.03.17</td>
+</tr>
+<tr class="row65">
+<td class="column0 style1 s">03.03.19</td>
+<td class="column1 style4 s">03.03.24</td>
+<td id="64" title="نورولوژی / روانپزشکی / عفونی   - B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row66">
+<td class="column0 style1 s">03.03.26</td>
+<td class="column1 style4 s">03.03.31</td>
+</tr>
+<tr class="row67">
+<td class="column0 style1 s">03.04.02</td>
+<td class="column1 style4 s">03.04.07</td>
+</tr>
+<tr class="row68">
+<td class="column0 style1 s">03.04.09</td>
+<td class="column1 style4 s">03.04.14</td>
+</tr>
+<tr class="row69">
+<td class="column0 style1 s">03.04.16</td>
+<td class="column1 style4 s">03.04.21</td>
+<td class="column6 style45 s style47" colspan="4">آزمون عفونی</td>
+</tr>
+<tr class="row70">
+<td class="column0 style1 s">03.04.23</td>
+<td class="column1 style4 s">03.04.28</td>
+<td id="67" title="زنان- B" class="column6 style103 s style111" colspan="4" rowspan="8">زنان</td>
+</tr>
+<tr class="row71">
+<td class="column0 style1 s">03.04.30</td>
+<td class="column1 style4 s">03.05.04</td>
+</tr>
+<tr class="row72">
+<td class="column0 style1 s">03.05.06</td>
+<td class="column1 style4 s">03.05.11</td>
+</tr>
+<tr class="row73">
+<td class="column0 style1 s">03.05.13</td>
+<td class="column1 style4 s">03.05.18</td>
+</tr>
+<tr class="row74">
+<td class="column0 style1 s">03.05.20</td>
+<td class="column1 style4 s">03.05.25</td>
+</tr>
+<tr class="row75">
+<td class="column0 style1 s">03.05.27</td>
+<td class="column1 style4 s">03.06.01</td>
+</tr>
+<tr class="row76">
+<td class="column0 style1 s">03.06.03</td>
+<td class="column1 style4 s">03.06.08</td>
+</tr>
+<tr class="row77">
+<td class="column0 style1 s">03.06.10</td>
+<td class="column1 style4 s">03.06.15</td>
+</tr>
+<tr class="row78">
+<td class="column0 style1 s">03.06.17</td>
+<td class="column1 style4 s">03.06.22</td>
+<td id="74" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row79">
+<td class="column0 style1 s">03.06.24</td>
+<td class="column1 style4 s">03.06.29</td>
+</tr>
+<tr class="row80">
+<td class="column0 style1 s">03.06.31</td>
+<td class="column1 style4 s">03.07.05</td>
+</tr>
+<tr class="row81">
+<td class="column0 style1 s">03.07.07</td>
+<td class="column1 style4 s">03.07.12</td>
+</tr>
+<tr class="row82">
+<td class="column0 style1 s">03.07.14</td>
+<td class="column1 style1 s">03.07.19</td>
+<td id="79" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row83">
+<td class="column0 style1 s">03.07.21</td>
+<td class="column1 style1 s">03.07.26</td>
+</tr>
+<tr class="row84">
+<td class="column0 style1 s">03.07.28</td>
+<td class="column1 style1 s">03.08.03</td>
+</tr>
+<tr class="row85">
+<td class="column0 style1 s">03.08.05</td>
+<td class="column1 style1 s">03.08.10</td>
+</tr>
+<tr class="row86">
+<td class="column0 style1 s">03.08.12</td>
+<td class="column1 style1 s">03.08.17</td>
+<td class="column6 style48 s style50" colspan="4">***</td>
+</tr>
+<tr class="row87">
+<td class="column0 style1 s">03.08.19</td>
+<td class="column1 style1 s">03.08.24</td>
+<td id="83" title="کودکان- B" class="column6 style94 s style102" colspan="4" rowspan="12">کودکان</td>
+</tr>
+<tr class="row88">
+<td class="column0 style1 s">03.08.26</td>
+<td class="column1 style1 s">03.09.01</td>
+</tr>
+<tr class="row89">
+<td class="column0 style1 s">03.09.03</td>
+<td class="column1 style1 s">03.09.08</td>
+</tr>
+<tr class="row90">
+<td class="column0 style1 s">03.09.10</td>
+<td class="column1 style1 s">03.09.15</td>
+</tr>
+<tr class="row91">
+<td class="column0 style1 s">03.09.17</td>
+<td class="column1 style1 s">03.09.22</td>
+</tr>
+<tr class="row92">
+<td class="column0 style1 s">03.09.24</td>
+<td class="column1 style1 s">03.09.29</td>
+</tr>
+<tr class="row93">
+<td class="column0 style1 s">03.10.01</td>
+<td class="column1 style1 s">03.10.06</td>
+</tr>
+<tr class="row94">
+<td class="column0 style1 s">03.10.08</td>
+<td class="column1 style1 s">03.10.13</td>
+</tr>
+<tr class="row95">
+<td class="column0 style1 s">03.10.15</td>
+<td class="column1 style1 s">03.10.20</td>
+</tr>
+<tr class="row96">
+<td class="column0 style1 s">03.10.22</td>
+<td class="column1 style1 s">03.10.27</td>
+</tr>
+<tr class="row97">
+<td class="column0 style1 s">03.10.29</td>
+<td class="column1 style1 s">03.11.04</td>
+</tr>
+<tr class="row98">
+<td class="column0 style1 s">03.11.06</td>
+<td class="column1 style1 s">03.11.11</td>
+</tr>
+</tbody>
+<tbody style="display:none;" id="C">
+<tr class="row0">
+<td class="column0 style1 s">01.10.17</td>
+<td class="column1 style1 s">01.10.22</td>
+<td id="3" title="98 C- C" class="column10 style6 s style8" colspan="4">98 C</td>
+</tr>
+<tr class="row1">
+<td class="column0 style2 s">01.11.22</td>
+<td class="column1 style3 s">01.11.27</td>
+<td id="7" title="داخلی- C" class="column10 style24 s style32" colspan="4" rowspan="16">داخلی</td>
+</tr>
+<tr class="row2">
+<td class="column0 style1 s">01.11.29</td>
+<td class="column1 style4 s">01.12.04</td>
+</tr>
+<tr class="row3">
+<td class="column0 style2 s">01.12.06</td>
+<td class="column1 style3 s">01.12.11</td>
+</tr>
+<tr class="row4">
+<td class="column0 style2 s">01.12.13</td>
+<td class="column1 style3 s">01.12.8</td>
+</tr>
+<tr class="row5">
+<td class="column0 style2 s">01.12.20</td>
+<td class="column1 style3 s">01.12.25</td>
+</tr>
+<tr class="row6">
+<td class="column0 style2 s">02.01.19</td>
+<td class="column1 style3 s">02.01.24</td>
+</tr>
+<tr class="row7">
+<td class="column0 style2 s">02.01.26</td>
+<td class="column1 style3 s">02.01.31</td>
+</tr>
+<tr class="row8">
+<td class="column0 style2 s">02.02.02</td>
+<td class="column1 style3 s">02.02.07</td>
+</tr>
+<tr class="row9">
+<td class="column0 style2 s">02.02.09</td>
+<td class="column1 style3 s">02.02.14</td>
+</tr>
+<tr class="row10">
+<td class="column0 style2 s">02.02.16</td>
+<td class="column1 style3 s">02.02.21</td>
+</tr>
+<tr class="row11">
+<td class="column0 style2 s">02.02.23</td>
+<td class="column1 style3 s">02.02.28</td>
+</tr>
+<tr class="row12">
+<td class="column0 style2 s">02.02.30</td>
+<td class="column1 style2 s">02.03.04</td>
+</tr>
+<tr class="row13">
+<td class="column0 style2 s">02.03.06</td>
+<td class="column1 style2 s">02.03.11</td>
+</tr>
+<tr class="row14">
+<td class="column0 style1 s">02.03.13</td>
+<td class="column1 style1 s">02.03.18</td>
+</tr>
+<tr class="row15">
+<td class="column0 style1 s">02.03.20</td>
+<td class="column1 style1 s">02.03.25</td>
+</tr>
+<tr class="row16">
+<td class="column0 style1 s">02.03.27</td>
+<td class="column1 style1 s">02.04.01</td>
+</tr>
+<tr class="row17">
+<td class="column0 style1 s">02.04.03</td>
+<td class="column1 style1 s">02.04.08</td>
+<td class="column10 style45 s style47" colspan="4">آزمون داخلی</td>
+</tr>
+<tr class="row18">
+<td class="column0 style1 s">02.04.10</td>
+<td class="column1 style1 s">02.04.15</td>
+<td id="19" title="اخلاق پزشکی - C" class="column10 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
+</tr>
+<tr class="row19">
+<td class="column0 style1 s">02.04.17</td>
+<td class="column1 style1 s">02.04.22</td>
+</tr>
+<tr class="row20">
+<td class="column0 style1 s">02.04.24</td>
+<td class="column1 style1 s">02.04.29</td>
+<td id="21" title="رادیولوژی - C" class="column10 style9 s style14" colspan="4" rowspan="2">رادیولوژی </td>
+</tr>
+<tr class="row21">
+<td class="column0 style1 s">02.04.31</td>
+<td class="column1 style1 s">02.05.05</td>
+</tr>
+<tr class="row22">
+<td class="column0 style1 s">02.05.07</td>
+<td class="column1 style1 s">02.05.12</td>
+<td class="column10 style45 s style46" colspan="8">آزمون اخلاق پزشکی و رادیولوژی</td>
+</tr>
+<tr class="row23">
+<td class="column0 style1 s">02.05.14</td>
+<td class="column1 style1 s">02.05.19</td>
+<td id="23" title="جراحی- C" class="column10 style15 s style23" colspan="4" rowspan="8">جراحی</td>
+</tr>
+<tr class="row24">
+<td class="column0 style1 s">02.05.21</td>
+<td class="column1 style1 s">02.05.26</td>
+</tr>
+<tr class="row25">
+<td class="column0 style1 s">02.05.28</td>
+<td class="column1 style1 s">02.06.02</td>
+</tr>
+<tr class="row26">
+<td class="column0 style1 s">02.06.04</td>
+<td class="column1 style1 s">02.06.09</td>
+</tr>
+<tr class="row27">
+<td class="column0 style1 s">02.06.11</td>
+<td class="column1 style1 s">02.06.16</td>
 </tr>
 <tr class="row28">
 <td class="column0 style1 s">02.06.18</td>
@@ -527,7 +1361,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column1 style1 s">02.07.13</td>
 <td id="32" title="ارتوپدی- C" class="column10 style51 s style56" colspan="2" rowspan="4">ارتوپدی</td>
 <td id="33" title="ارولوژی- C" class="column12 style57 s style62" colspan="2" rowspan="4">ارولوژی</td>
-<td id="34" title="جراحی- D" class="column14 style15 s style23" colspan="4" rowspan="8">جراحی</td>
 </tr>
 <tr class="row32">
 <td class="column0 style1 s">02.07.15</td>
@@ -573,20 +1406,14 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style1 s">02.09.18</td>
 <td class="column1 style1 s">02.09.23</td>
 <td id="37" title="زنان- C" class="column10 style103 s style111" colspan="4" rowspan="8">زنان</td>
-<td id="38" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 </tr>
 <tr class="row42">
 <td class="column0 style1 s">02.09.25</td>
 <td class="column1 style1 s">02.09.30</td>
-<td class="column2 style115 s style47" colspan="4">آزمون داخلی</td>
-<td class="column6 style45 s style47" colspan="4">آزمون داخلی</td>
 </tr>
 <tr class="row43">
 <td class="column0 style1 s">02.10.02</td>
 <td class="column1 style4 s">02.10.07</td>
-<td id="39" title="اخلاق پزشکی - A" class="column2 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
-<td id="40" title="بیهوشی / طب اورژانس/ چشم- B" class="column6 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
-<td id="41" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row44">
 <td class="column0 style1 s">02.10.09</td>
@@ -595,8 +1422,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row45">
 <td class="column0 style1 s">02.10.16</td>
 <td class="column1 style4 s">02.10.21</td>
-<td id="42" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
-<td id="43" title="اخلاق پزشکی - B" class="column6 style9 s style14" colspan="4" rowspan="2">اخلاق پزشکی </td>
 </tr>
 <tr class="row46">
 <td class="column0 style1 s">02.10.23</td>
@@ -605,22 +1430,15 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row47">
 <td class="column0 style1 s">02.10.30</td>
 <td class="column1 style4 s">02.11.05</td>
-<td class="column2 style45 s style47" colspan="8">آزمون اخلاق پزشکی </td>
-<td id="44" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 </tr>
 <tr class="row48">
 <td class="column0 style1 s">02.11.07</td>
 <td class="column1 style1 s">02.11.12</td>
-<td id="45" title="روانپزشکی / نورولوژی- A" class="column2 style91 s style93" colspan="4">روانپزشکی / نورولوژی</td>
-<td id="46" title="روانپزشکی / نورولوژی- B" class="column6 style91 s style93" colspan="4">روانپزشکی / نورولوژی</td>
 </tr>
 <tr class="row49">
 <td class="column0 style1 s">02.11.14</td>
 <td class="column1 style1 s">02.11.19</td>
-<td id="47" title="بیهوشی / طب اورژانس/ چشم- A" class="column2 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
-<td id="48" title="بیهوشی / طب اورژانس/ چشم- B" class="column6 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 <td id="49" title="کودکان- C" class="column10 style94 s style102" colspan="4" rowspan="12">کودکان</td>
-<td id="50" title="زنان- D" class="column14 style103 s style111" colspan="4" rowspan="8">زنان</td>
 </tr>
 <tr class="row50">
 <td class="column0 style1 s">02.11.21</td>
@@ -629,20 +1447,14 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row51">
 <td class="column0 style1 s">02.11.28</td>
 <td class="column1 style4 s">02.12.03</td>
-<td id="51" title="عفونی- A" class="column2 style112 s style114" colspan="4">عفونی</td>
-<td id="52" title="عفونی- B" class="column6 style112 s style114" colspan="4">عفونی</td>
 </tr>
 <tr class="row52">
 <td class="column0 style1 s">02.12.05</td>
 <td class="column1 style1 s">02.12.10</td>
-<td class="column2 style72 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
-<td class="column6 style72 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
 </tr>
 <tr class="row53">
 <td class="column0 style1 s">02.12.12</td>
 <td class="column1 style1 s">02.12.17</td>
-<td id="53" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="54" title="نورولوژی / روانپزشکی / عفونی- B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی</td>
 </tr>
 <tr class="row54">
 <td class="column0 style1 s">02.12.19</td>
@@ -659,9 +1471,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row57">
 <td class="column0 style1 s">03.01.25</td>
 <td class="column1 style1 s">03.01.30</td>
-<td id="55" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="56" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
-<td id="57" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row58">
 <td class="column0 style1 s">03.02.01</td>
@@ -678,10 +1487,7 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row61">
 <td class="column0 style1 s">03.02.22</td>
 <td class="column1 style4 s">03.02.27</td>
-<td id="58" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
-<td id="59" title="نورولوژی / روانپزشکی / عفونی   - B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
 <td id="60" title="بیهوشی / طب اورژانس/ چشم- C" class="column10 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
-<td id="61" title="کودکان- D" class="column14 style94 s style102" colspan="4" rowspan="12">کودکان</td>
 </tr>
 <tr class="row62">
 <td class="column0 style1 s">03.02.29</td>
@@ -699,8 +1505,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row65">
 <td class="column0 style1 s">03.03.19</td>
 <td class="column1 style4 s">03.03.24</td>
-<td id="63" title="نورولوژی / روانپزشکی / عفونی   - A" class="column2 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="64" title="نورولوژی / روانپزشکی / عفونی   - B" class="column6 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
 <td id="65" title="بهداشت / پوست / ENT- C" class="column10 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row66">
@@ -718,15 +1522,11 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row69">
 <td class="column0 style1 s">03.04.16</td>
 <td class="column1 style4 s">03.04.21</td>
-<td class="column2 style45 s style47" colspan="4">آزمون عفونی</td>
-<td class="column6 style45 s style47" colspan="4">آزمون عفونی</td>
 <td class="column10 style45 s style47" colspan="4">***</td>
 </tr>
 <tr class="row70">
 <td class="column0 style1 s">03.04.23</td>
 <td class="column1 style4 s">03.04.28</td>
-<td id="66" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
-<td id="67" title="زنان- B" class="column6 style103 s style111" colspan="4" rowspan="8">زنان</td>
 <td id="68" title="بهداشت / پوست / ENT- C" class="column10 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row71">
@@ -740,26 +1540,21 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row73">
 <td class="column0 style1 s">03.05.13</td>
 <td class="column1 style4 s">03.05.18</td>
-<td class="column14 style48 s style50" colspan="4">***</td>
 </tr>
 <tr class="row74">
 <td class="column0 style1 s">03.05.20</td>
 <td class="column1 style4 s">03.05.25</td>
-<td id="69" title="کودکان- A" class="column2 style94 s style102" colspan="4" rowspan="12">کودکان</td>
 <td class="column10 style45 s style47" colspan="4">***</td>
-<td class="column14 style45 s style47" colspan="4">***</td>
 </tr>
 <tr class="row75">
 <td class="column0 style1 s">03.05.27</td>
 <td class="column1 style4 s">03.06.01</td>
 <td id="70" title="روانپزشکی / نورولوژی- C" class="column10 style116 s style93" colspan="4">روانپزشکی / نورولوژی</td>
-<td id="71" title="روانپزشکی / نورولوژی- D" class="column14 style116 s style93" colspan="4">روانپزشکی / نورولوژی</td>
 </tr>
 <tr class="row76">
 <td class="column0 style1 s">03.06.03</td>
 <td class="column1 style4 s">03.06.08</td>
 <td id="72" title="بیهوشی / طب اورژانس/ چشم- C" class="column10 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
-<td id="73" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
 </tr>
 <tr class="row77">
 <td class="column0 style1 s">03.06.10</td>
@@ -768,21 +1563,17 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row78">
 <td class="column0 style1 s">03.06.17</td>
 <td class="column1 style4 s">03.06.22</td>
-<td id="74" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 <td id="75" title="عفونی- C" class="column10 style117 s style114" colspan="4">عفونی</td>
-<td id="76" title="عفونی- D" class="column14 style117 s style114" colspan="4">عفونی</td>
 </tr>
 <tr class="row79">
 <td class="column0 style1 s">03.06.24</td>
 <td class="column1 style4 s">03.06.29</td>
 <td class="column10 style48 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
-<td class="column14 style48 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
 </tr>
 <tr class="row80">
 <td class="column0 style1 s">03.06.31</td>
 <td class="column1 style4 s">03.07.05</td>
 <td id="77" title="نورولوژی / روانپزشکی / عفونی   - C" class="column10 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="78" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
 </tr>
 <tr class="row81">
 <td class="column0 style1 s">03.07.07</td>
@@ -791,7 +1582,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <tr class="row82">
 <td class="column0 style1 s">03.07.14</td>
 <td class="column1 style1 s">03.07.19</td>
-<td id="79" title="بهداشت / پوست / ENT- B" class="column6 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row83">
 <td class="column0 style1 s">03.07.21</td>
@@ -801,27 +1591,20 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style1 s">03.07.28</td>
 <td class="column1 style1 s">03.08.03</td>
 <td class="column10 style45 s style47" colspan="4">***</td>
-<td class="column14 style45 s style47" colspan="4">***</td>
 </tr>
 <tr class="row85">
 <td class="column0 style1 s">03.08.05</td>
 <td class="column1 style1 s">03.08.10</td>
 <td class="column10 style45 s style47" colspan="4">***</td>
-<td class="column14 style45 s style47" colspan="4">***</td>
 </tr>
 <tr class="row86">
 <td class="column0 style1 s">03.08.12</td>
 <td class="column1 style1 s">03.08.17</td>
-<td class="column2 style48 s style50" colspan="4">***</td>
-<td class="column6 style48 s style50" colspan="4">***</td>
 <td id="80" title="نورولوژی / روانپزشکی / عفونی   - C" class="column10 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="81" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row87">
 <td class="column0 style1 s">03.08.19</td>
 <td class="column1 style1 s">03.08.24</td>
-<td id="82" title="زنان- A" class="column2 style103 s style111" colspan="4" rowspan="8">زنان</td>
-<td id="83" title="کودکان- B" class="column6 style94 s style102" colspan="4" rowspan="12">کودکان</td>
 </tr>
 <tr class="row88">
 <td class="column0 style1 s">03.08.26</td>
@@ -835,7 +1618,6 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style1 s">03.09.10</td>
 <td class="column1 style1 s">03.09.15</td>
 <td id="84" title="بهداشت / پوست / ENT- C" class="column10 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
-<td id="85" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
 </tr>
 <tr class="row91">
 <td class="column0 style1 s">03.09.17</td>
@@ -853,12 +1635,10 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style1 s">03.10.08</td>
 <td class="column1 style1 s">03.10.13</td>
 <td id="86" title="نورولوژی / روانپزشکی / عفونی   - C" class="column10 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
-<td id="87" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
 </tr>
 <tr class="row95">
 <td class="column0 style1 s">03.10.15</td>
 <td class="column1 style1 s">03.10.20</td>
-<td id="88" title="بهداشت / پوست / ENT- A" class="column2 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
 </tr>
 <tr class="row96">
 <td class="column0 style1 s">03.10.22</td>
@@ -872,9 +1652,436 @@ body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom
 <td class="column0 style1 s">03.11.06</td>
 <td class="column1 style1 s">03.11.11</td>
 <td class="column10 style45 s style47" colspan="4">آزمون عفونی</td>
+</tr>
+</tbody>
+<tbody style="display:none;" id="D">
+<tr class="row0">
+<td class="column0 style1 s">01.10.17</td>
+<td class="column1 style1 s">01.10.22</td>
+<td id="4" title="98 D- D" class="column14 style6 s style8" colspan="4">98 D</td>
+</tr>
+<tr class="row1">
+<td class="column0 style2 s">01.11.22</td>
+<td class="column1 style3 s">01.11.27</td>
+<td id="8" title="داخلی- D" class="column14 style24 s style32" colspan="4" rowspan="16">داخلی</td>
+</tr>
+<tr class="row2">
+<td class="column0 style1 s">01.11.29</td>
+<td class="column1 style4 s">01.12.04</td>
+</tr>
+<tr class="row3">
+<td class="column0 style2 s">01.12.06</td>
+<td class="column1 style3 s">01.12.11</td>
+</tr>
+<tr class="row4">
+<td class="column0 style2 s">01.12.13</td>
+<td class="column1 style3 s">01.12.8</td>
+</tr>
+<tr class="row5">
+<td class="column0 style2 s">01.12.20</td>
+<td class="column1 style3 s">01.12.25</td>
+</tr>
+<tr class="row6">
+<td class="column0 style2 s">02.01.19</td>
+<td class="column1 style3 s">02.01.24</td>
+</tr>
+<tr class="row7">
+<td class="column0 style2 s">02.01.26</td>
+<td class="column1 style3 s">02.01.31</td>
+</tr>
+<tr class="row8">
+<td class="column0 style2 s">02.02.02</td>
+<td class="column1 style3 s">02.02.07</td>
+</tr>
+<tr class="row9">
+<td class="column0 style2 s">02.02.09</td>
+<td class="column1 style3 s">02.02.14</td>
+</tr>
+<tr class="row10">
+<td class="column0 style2 s">02.02.16</td>
+<td class="column1 style3 s">02.02.21</td>
+</tr>
+<tr class="row11">
+<td class="column0 style2 s">02.02.23</td>
+<td class="column1 style3 s">02.02.28</td>
+</tr>
+<tr class="row12">
+<td class="column0 style2 s">02.02.30</td>
+<td class="column1 style2 s">02.03.04</td>
+</tr>
+<tr class="row13">
+<td class="column0 style2 s">02.03.06</td>
+<td class="column1 style2 s">02.03.11</td>
+</tr>
+<tr class="row14">
+<td class="column0 style1 s">02.03.13</td>
+<td class="column1 style1 s">02.03.18</td>
+</tr>
+<tr class="row15">
+<td class="column0 style1 s">02.03.20</td>
+<td class="column1 style1 s">02.03.25</td>
+</tr>
+<tr class="row16">
+<td class="column0 style1 s">02.03.27</td>
+<td class="column1 style1 s">02.04.01</td>
+</tr>
+<tr class="row17">
+<td class="column0 style1 s">02.04.03</td>
+<td class="column1 style1 s">02.04.08</td>
+<td class="column14 style45 s style47" colspan="4">آزمون داخلی</td>
+</tr>
+<tr class="row18">
+<td class="column0 style1 s">02.04.10</td>
+<td class="column1 style1 s">02.04.15</td>
+<td id="20" title="رادیولوژی - D" class="column14 style9 s style13" colspan="4" rowspan="2">رادیولوژی </td>
+</tr>
+<tr class="row19">
+<td class="column0 style1 s">02.04.17</td>
+<td class="column1 style1 s">02.04.22</td>
+</tr>
+<tr class="row20">
+<td class="column0 style1 s">02.04.24</td>
+<td class="column1 style1 s">02.04.29</td>
+<td id="22" title="اخلاق پزشکی - D" class="column14 style9 s style13" colspan="4" rowspan="2">اخلاق پزشکی </td>
+</tr>
+<tr class="row21">
+<td class="column0 style1 s">02.04.31</td>
+<td class="column1 style1 s">02.05.05</td>
+</tr>
+<tr class="row22">
+<td class="column0 style1 s">02.05.07</td>
+<td class="column1 style1 s">02.05.12</td>
+</tr>
+<tr class="row23">
+<td class="column0 style1 s">02.05.14</td>
+<td class="column1 style1 s">02.05.19</td>
+<td id="24" title="ارتوپدی- D" class="column14 style51 s style56" colspan="2" rowspan="4">ارتوپدی</td>
+<td id="25" title="ارولوژی- D" class="column16 style57 s style62" colspan="2" rowspan="4">ارولوژی</td>
+</tr>
+<tr class="row24">
+<td class="column0 style1 s">02.05.21</td>
+<td class="column1 style1 s">02.05.26</td>
+</tr>
+<tr class="row25">
+<td class="column0 style1 s">02.05.28</td>
+<td class="column1 style1 s">02.06.02</td>
+</tr>
+<tr class="row26">
+<td class="column0 style1 s">02.06.04</td>
+<td class="column1 style1 s">02.06.09</td>
+</tr>
+<tr class="row27">
+<td class="column0 style1 s">02.06.11</td>
+<td class="column1 style1 s">02.06.16</td>
+<td id="30" title="ارولوژی- D" class="column14 style57 s style62" colspan="2" rowspan="4">ارولوژی</td>
+<td id="31" title="ارتوپدی- D" class="column16 style51 s style56" colspan="2" rowspan="4">ارتوپدی</td>
+</tr>
+<tr class="row28">
+<td class="column0 style1 s">02.06.18</td>
+<td class="column1 style1 s">02.06.23</td>
+</tr>
+<tr class="row29">
+<td class="column0 style1 s">02.06.25</td>
+<td class="column1 style1 s">02.06.30</td>
+</tr>
+<tr class="row30">
+<td class="column0 style1 s">02.07.01</td>
+<td class="column1 style1 s">02.07.06</td>
+</tr>
+<tr class="row31">
+<td class="column0 style1 s">02.07.08</td>
+<td class="column1 style1 s">02.07.13</td>
+<td id="34" title="جراحی- D" class="column14 style15 s style23" colspan="4" rowspan="8">جراحی</td>
+</tr>
+<tr class="row32">
+<td class="column0 style1 s">02.07.15</td>
+<td class="column1 style1 s">02.07.20</td>
+</tr>
+<tr class="row33">
+<td class="column0 style1 s">02.07.22</td>
+<td class="column1 style1 s">02.07.27</td>
+</tr>
+<tr class="row34">
+<td class="column0 style1 s">02.07.29</td>
+<td class="column1 style1 s">02.08.04</td>
+</tr>
+<tr class="row35">
+<td class="column0 style1 s">02.08.06</td>
+<td class="column1 style1 s">02.08.11</td>
+</tr>
+<tr class="row36">
+<td class="column0 style1 s">02.08.13</td>
+<td class="column1 style1 s">02.08.18</td>
+</tr>
+<tr class="row37">
+<td class="column0 style1 s">02.08.20</td>
+<td class="column1 style1 s">02.08.25</td>
+</tr>
+<tr class="row38">
+<td class="column0 style1 s">02.08.27</td>
+<td class="column1 style1 s">02.09.02</td>
+</tr>
+<tr class="row39">
+<td class="column0 style1 s">02.09.04</td>
+<td class="column1 style1 s">02.09.09</td>
+</tr>
+<tr class="row40">
+<td class="column0 style1 s">02.09.11</td>
+<td class="column1 style1 s">02.09.16</td>
+</tr>
+<tr class="row41">
+<td class="column0 style1 s">02.09.18</td>
+<td class="column1 style1 s">02.09.23</td>
+<td id="38" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row42">
+<td class="column0 style1 s">02.09.25</td>
+<td class="column1 style1 s">02.09.30</td>
+</tr>
+<tr class="row43">
+<td class="column0 style1 s">02.10.02</td>
+<td class="column1 style4 s">02.10.07</td>
+<td id="41" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row44">
+<td class="column0 style1 s">02.10.09</td>
+<td class="column1 style4 s">02.10.14</td>
+</tr>
+<tr class="row45">
+<td class="column0 style1 s">02.10.16</td>
+<td class="column1 style4 s">02.10.21</td>
+</tr>
+<tr class="row46">
+<td class="column0 style1 s">02.10.23</td>
+<td class="column1 style4 s">02.10.28</td>
+</tr>
+<tr class="row47">
+<td class="column0 style1 s">02.10.30</td>
+<td class="column1 style4 s">02.11.05</td>
+<td id="44" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row48">
+<td class="column0 style1 s">02.11.07</td>
+<td class="column1 style1 s">02.11.12</td>
+</tr>
+<tr class="row49">
+<td class="column0 style1 s">02.11.14</td>
+<td class="column1 style1 s">02.11.19</td>
+<td id="50" title="زنان- D" class="column14 style103 s style111" colspan="4" rowspan="8">زنان</td>
+</tr>
+<tr class="row50">
+<td class="column0 style1 s">02.11.21</td>
+<td class="column1 style4 s">02.11.26</td>
+</tr>
+<tr class="row51">
+<td class="column0 style1 s">02.11.28</td>
+<td class="column1 style4 s">02.12.03</td>
+</tr>
+<tr class="row52">
+<td class="column0 style1 s">02.12.05</td>
+<td class="column1 style1 s">02.12.10</td>
+</tr>
+<tr class="row53">
+<td class="column0 style1 s">02.12.12</td>
+<td class="column1 style1 s">02.12.17</td>
+</tr>
+<tr class="row54">
+<td class="column0 style1 s">02.12.19</td>
+<td class="column1 style1 s">02.12.24</td>
+</tr>
+<tr class="row55">
+<td class="column0 style1 s">02.12.26</td>
+<td class="column1 style1 s">02.12.29</td>
+</tr>
+<tr class="row56">
+<td class="column0 style5 s">03.01.18</td>
+<td class="column1 style1 s">03.01.23</td>
+</tr>
+<tr class="row57">
+<td class="column0 style1 s">03.01.25</td>
+<td class="column1 style1 s">03.01.30</td>
+<td id="57" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row58">
+<td class="column0 style1 s">03.02.01</td>
+<td class="column1 style1 s">03.02.06</td>
+</tr>
+<tr class="row59">
+<td class="column0 style1 s">03.02.08</td>
+<td class="column1 style4 s">03.02.13</td>
+</tr>
+<tr class="row60">
+<td class="column0 style1 s">03.02.15</td>
+<td class="column1 style4 s">03.02.20</td>
+</tr>
+<tr class="row61">
+<td class="column0 style1 s">03.02.22</td>
+<td class="column1 style4 s">03.02.27</td>
+<td id="61" title="کودکان- D" class="column14 style94 s style102" colspan="4" rowspan="12">کودکان</td>
+</tr>
+<tr class="row62">
+<td class="column0 style1 s">03.02.29</td>
+<td class="column1 style4 s">03.03.03</td>
+</tr>
+<tr class="row63">
+<td class="column0 style1 s">03.03.05</td>
+<td class="column1 style4 s">03.03.10</td>
+</tr>
+<tr class="row64">
+<td class="column0 style1 s">03.03.12</td>
+<td class="column1 style4 s">03.03.17</td>
+</tr>
+<tr class="row65">
+<td class="column0 style1 s">03.03.19</td>
+<td class="column1 style4 s">03.03.24</td>
+</tr>
+<tr class="row66">
+<td class="column0 style1 s">03.03.26</td>
+<td class="column1 style4 s">03.03.31</td>
+</tr>
+<tr class="row67">
+<td class="column0 style1 s">03.04.02</td>
+<td class="column1 style4 s">03.04.07</td>
+</tr>
+<tr class="row68">
+<td class="column0 style1 s">03.04.09</td>
+<td class="column1 style4 s">03.04.14</td>
+</tr>
+<tr class="row69">
+<td class="column0 style1 s">03.04.16</td>
+<td class="column1 style4 s">03.04.21</td>
+</tr>
+<tr class="row70">
+<td class="column0 style1 s">03.04.23</td>
+<td class="column1 style4 s">03.04.28</td>
+</tr>
+<tr class="row71">
+<td class="column0 style1 s">03.04.30</td>
+<td class="column1 style4 s">03.05.04</td>
+</tr>
+<tr class="row72">
+<td class="column0 style1 s">03.05.06</td>
+<td class="column1 style4 s">03.05.11</td>
+</tr>
+<tr class="row73">
+<td class="column0 style1 s">03.05.13</td>
+<td class="column1 style4 s">03.05.18</td>
+<td class="column14 style48 s style50" colspan="4">***</td>
+</tr>
+<tr class="row74">
+<td class="column0 style1 s">03.05.20</td>
+<td class="column1 style4 s">03.05.25</td>
+<td class="column14 style45 s style47" colspan="4">***</td>
+</tr>
+<tr class="row75">
+<td class="column0 style1 s">03.05.27</td>
+<td class="column1 style4 s">03.06.01</td>
+<td id="71" title="روانپزشکی / نورولوژی- D" class="column14 style116 s style93" colspan="4">روانپزشکی / نورولوژی</td>
+</tr>
+<tr class="row76">
+<td class="column0 style1 s">03.06.03</td>
+<td class="column1 style4 s">03.06.08</td>
+<td id="73" title="بیهوشی / طب اورژانس/ چشم- D" class="column14 style63 s style68" colspan="4" rowspan="2">بیهوشی / طب اورژانس/ چشم</td>
+</tr>
+<tr class="row77">
+<td class="column0 style1 s">03.06.10</td>
+<td class="column1 style4 s">03.06.15</td>
+</tr>
+<tr class="row78">
+<td class="column0 style1 s">03.06.17</td>
+<td class="column1 style4 s">03.06.22</td>
+<td id="76" title="عفونی- D" class="column14 style117 s style114" colspan="4">عفونی</td>
+</tr>
+<tr class="row79">
+<td class="column0 style1 s">03.06.24</td>
+<td class="column1 style4 s">03.06.29</td>
+<td class="column14 style48 s style50" colspan="4">آزمون روانپزشکی و نورولوژی</td>
+</tr>
+<tr class="row80">
+<td class="column0 style1 s">03.06.31</td>
+<td class="column1 style4 s">03.07.05</td>
+<td id="78" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row81">
+<td class="column0 style1 s">03.07.07</td>
+<td class="column1 style4 s">03.07.12</td>
+</tr>
+<tr class="row82">
+<td class="column0 style1 s">03.07.14</td>
+<td class="column1 style1 s">03.07.19</td>
+</tr>
+<tr class="row83">
+<td class="column0 style1 s">03.07.21</td>
+<td class="column1 style1 s">03.07.26</td>
+</tr>
+<tr class="row84">
+<td class="column0 style1 s">03.07.28</td>
+<td class="column1 style1 s">03.08.03</td>
+<td class="column14 style45 s style47" colspan="4">***</td>
+</tr>
+<tr class="row85">
+<td class="column0 style1 s">03.08.05</td>
+<td class="column1 style1 s">03.08.10</td>
+<td class="column14 style45 s style47" colspan="4">***</td>
+</tr>
+<tr class="row86">
+<td class="column0 style1 s">03.08.12</td>
+<td class="column1 style1 s">03.08.17</td>
+<td id="81" title="بهداشت / پوست / ENT- D" class="column14 style82 s style90" colspan="4" rowspan="4">بهداشت / پوست / ENT</td>
+</tr>
+<tr class="row87">
+<td class="column0 style1 s">03.08.19</td>
+<td class="column1 style1 s">03.08.24</td>
+</tr>
+<tr class="row88">
+<td class="column0 style1 s">03.08.26</td>
+<td class="column1 style1 s">03.09.01</td>
+</tr>
+<tr class="row89">
+<td class="column0 style1 s">03.09.03</td>
+<td class="column1 style1 s">03.09.08</td>
+</tr>
+<tr class="row90">
+<td class="column0 style1 s">03.09.10</td>
+<td class="column1 style1 s">03.09.15</td>
+<td id="85" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row91">
+<td class="column0 style1 s">03.09.17</td>
+<td class="column1 style1 s">03.09.22</td>
+</tr>
+<tr class="row92">
+<td class="column0 style1 s">03.09.24</td>
+<td class="column1 style1 s">03.09.29</td>
+</tr>
+<tr class="row93">
+<td class="column0 style1 s">03.10.01</td>
+<td class="column1 style1 s">03.10.06</td>
+</tr>
+<tr class="row94">
+<td class="column0 style1 s">03.10.08</td>
+<td class="column1 style1 s">03.10.13</td>
+<td id="87" title="نورولوژی / روانپزشکی / عفونی   - D" class="column14 style73 s style81" colspan="4" rowspan="4">نورولوژی / روانپزشکی / عفونی   </td>
+</tr>
+<tr class="row95">
+<td class="column0 style1 s">03.10.15</td>
+<td class="column1 style1 s">03.10.20</td>
+</tr>
+<tr class="row96">
+<td class="column0 style1 s">03.10.22</td>
+<td class="column1 style1 s">03.10.27</td>
+</tr>
+<tr class="row97">
+<td class="column0 style1 s">03.10.29</td>
+<td class="column1 style1 s">03.11.04</td>
+</tr>
+<tr class="row98">
+<td class="column0 style1 s">03.11.06</td>
+<td class="column1 style1 s">03.11.11</td>
 <td class="column14 style45 s style46" colspan="4">آزمون عفونی</td>
 </tr>
 </tbody>
+
 </table>
 <a href="{% url 'index' %}">first page</a>
 <script>
@@ -882,7 +2089,6 @@ var mycapacity = '{{ mycapacity }}'
 var unit;
 var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
 const data = JSON.parse(mycapacity_replaced);
-console.log(data)
 for (var i = 1 ; i < 89; i += 1) {
   unit = document.getElementById(i).title;
   var listOfObjects = [];
@@ -894,6 +2100,18 @@ for (var i = 1 ; i < 89; i += 1) {
   }
   document.getElementById(i).title = listOfObjects;
 }
+function fun(value) {
+  var listOfObjects = ['A','B','C','D'];
+for (var variable of listOfObjects) {
+  if (variable == value) {
+      document.getElementById(variable).style.display = "table";
+  }
+  else {
+    document.getElementById(variable).style.display = "none";
+  }
+}
+   
+  }
 </script>
 </body>
 </html>
