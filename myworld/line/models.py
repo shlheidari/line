@@ -32,3 +32,7 @@ class Capacity(models.Model):
     hospital = models.CharField(max_length=255)
     full = models.CharField(max_length=255)
     remain = models.CharField(max_length=255)
+
+class Selection(models.Model):
+    item = models.CharField(max_length=255)
+    choice = models.CharField(max_length=255)

@@ -19,8 +19,7 @@
   .inlineStr { text-align:left }
   .n { text-align:right }
   .s { text-align:left }
-  table.stylet { display:none; z-index:1; position:absolute; background-color:#FFFFFF }
-  td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white; display:none }
+    td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white; display:none }
   th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white; display:none }
   td.style1 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'B Nazanin'; font-size:8pt; background-color:#FFFFFF; display:none }
   th.style1 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'B Nazanin'; font-size:8pt; background-color:#FFFFFF; display:none }
@@ -334,13 +333,13 @@
        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-       <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
   <style>
   @page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   </style>
+  <a href="{% url 'index' %}">first page</a>
   <div id="select_line"></div>
  
  <div id="line_detail"></div>
@@ -366,83 +365,41 @@
   <col class="col17">
       <div id="root"></div>
  </table>
- <div id="button"></div>
+ <a href="{% url 'index' %}">first page</a>
       <script type="text/babel">
-
+      
       const { useState } = React
-var final = [{}]
 var myline = '{{ myline }}'
 var myline_replaced = myline.replace(/&quot;/g,'"')
 const data_l = JSON.parse(myline_replaced);
-var mycapacity = '{{ mycapacity }}'
-var unit;
-var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
-var data_c = JSON.parse(mycapacity_replaced);
-function Detail(props){
-if (props.id != ""){
-var listOfObjects= ['t'+props.id]
-for (var l, k = 0; k < data_c.length; k += 1) {
-  l = data_c[k]["fields"]["unit"];
-  if (props.title === l && data_c[k]["fields"]["remain"] > 0 && data_c[k]["fields"]["hospital"]  != "All") {
-    listOfObjects.push(data_c[k]["fields"])
-    
-  }
-}
-
-} 
-if (listOfObjects == undefined || listOfObjects.length < 2){
-return(<span></span>)
-} else {
-var de = listOfObjects[0]
-return(
-<table id={de} class={'stylet'}>
-<tbody>
-    {listOfObjects.map((tab) => (
-        <tr>
-        <td>{tab.hospital}</td>
-        </tr>
-    ))}
-</tbody>
-</table>
-  )
-}
-
-}
-
-class App extends React.Component{
-constructor(props){
-  super(props)
-  // preserve the initial state in a new object
-  this.baseState = this.state 
-}
-resetForm = () => {
-    this.setState(this.baseState)
-  }
-render() {
+const App = () => {
+    const [tables, setTables] = useState(data_l);
       return (    
           <tbody>
-              {data_l.map((table) => (
+              {tables.map((table) => (
                   <tr class={table.class}>
-                  <td id={table.first.id} title={table.first.title} class={table.first.class} colspan={table.first.colspan} rowspan={table.first.rowspan} ><div><Detail id={table.first.id} title={table.first.title}/><div><span>{table.first.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.second.id} title={table.second.title} class={table.second.class} colspan={table.second.colspan} rowspan={table.second.rowspan} ><div><Detail id={table.second.id} title={table.second.title}/><div><span>{table.second.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.third.id} title={table.third.title} class={table.third.class} colspan={table.third.colspan} rowspan={table.third.rowspan} ><div><Detail id={table.third.id} title={table.third.title}/><div><span>{table.third.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.forth.id} title={table.forth.title} class={table.forth.class} colspan={table.forth.colspan} rowspan={table.forth.rowspan} ><div><Detail id={table.forth.id} title={table.forth.title}/><div><span>{table.forth.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.fifth.id} title={table.fifth.title} class={table.fifth.class} colspan={table.fifth.colspan} rowspan={table.fifth.rowspan} ><div><Detail id={table.fifth.id} title={table.fifth.title}/><div><span>{table.fifth.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.sixth.id} title={table.sixth.title} class={table.sixth.class} colspan={table.sixth.colspan} rowspan={table.sixth.rowspan} ><div><Detail id={table.sixth.id} title={table.sixth.title}/><div><span>{table.sixth.content}</span><div><span></span></div></div></div></td>
-                  <td id={table.seventh.id} title={table.seventh.title} class={table.seventh.class} colspan={table.seventh.colspan} rowspan={table.seventh.rowspan} ><div><Detail id={table.seventh.id} title={table.seventh.title}/><div><span>{table.seventh.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.first.id} title={table.first.title} class={table.first.class} colspan={table.first.colspan} rowspan={table.first.rowspan} >{table.first.content}</td>
+                  <td id={table.second.id} title={table.second.title} class={table.second.class} colspan={table.second.colspan} rowspan={table.second.rowspan} >{table.second.content}</td>
+                  <td id={table.third.id} title={table.third.title} class={table.third.class} colspan={table.third.colspan} rowspan={table.third.rowspan} >{table.third.content}</td>
+                  <td id={table.forth.id} title={table.forth.title} class={table.forth.class} colspan={table.forth.colspan} rowspan={table.forth.rowspan} >{table.forth.content}</td>
+                  <td id={table.fifth.id} title={table.fifth.title} class={table.fifth.class} colspan={table.fifth.colspan} rowspan={table.fifth.rowspan} >{table.fifth.content}</td>
+                  <td id={table.sixth.id} title={table.sixth.title} class={table.sixth.class} colspan={table.sixth.colspan} rowspan={table.sixth.rowspan} >{table.sixth.content}</td>
+                  <td id={table.seventh.id} title={table.seventh.title} class={table.seventh.class} colspan={table.seventh.colspan} rowspan={table.seventh.rowspan} >{table.seventh.content}</td>
                   </tr>
               ))}
           </tbody>
       )
 }  
-}
 ReactDOM.render(
   <App/>,
   document.getElementById("root")
 )
 
 
- 
+ var mycapacity = '{{ mycapacity }}'
+ var unit;
+ var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
+ var data_c = JSON.parse(mycapacity_replaced);
  //data_c[106]["fields"]["remain"] = 0;
  var listOflines = []
  var array = ["لطفا لاین مورد نظر را انتخاب کنید"]
@@ -487,42 +444,16 @@ ReactDOM.render(
 )
 
  for (var i = 1 ; i < 89; i += 1) {
-   document.getElementById(i).addEventListener('click', clicked);
+   unit = document.getElementById(i).title;
+   var listOfObjects = [];
+   for (var l, k = 0; k < data_c.length; k += 1) {
+     l = data_c[k]["fields"]["unit"];
+     if (unit === l) {
+       listOfObjects.push(JSON.stringify(data_c[k]["fields"]));
+     }
+   }
+   document.getElementById(i).title = listOfObjects;
  }
-
- 
-function clicked(e) {
-var DetailTable = document.getElementsByClassName('stylet')
-for (var i of DetailTable){
-i.style.display = "none";
-}
-var ev = e.srcElement.firstChild.offsetParent
-if (ev == undefined) {
-ev = e.srcElement.firstChild.parentElement.offsetParent
-}
-if (ev == null){
-var a = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.firstChild.lastElementChild.firstChild.innerText
-var b = e.target.innerHTML
-var c = e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastElementChild.firstElementChild.innerHTML
-var sel = [{a,b,c}]
-axios.defaults.xsrfHeaderName = "X-CSRFToken";
-axios.defaults.xsrfCookieName = 'csrftoken';    
-axios.post('selected/', {
-    sel
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastElementChild.firstElementChild.innerHTML = b
-} else {
-var id = "t"+ev['id']
-document.getElementById(id).style.display = "table";
-}
-
-}
 
 
  class ControlledSelect extends React.Component{ 
@@ -536,39 +467,21 @@ document.getElementById(id).style.display = "table";
         var column = "column"+i
         var list = document.getElementsByClassName(column)
         for (var k = 0; k < list.length ; k += 1){
-        if (document.getElementsByClassName(column)[k].getElementsByTagName('span').length == 2){
-        document.getElementsByClassName(column)[k].getElementsByTagName('span')[1].innerHTML = ''
-        }
         document.getElementsByClassName(column)[k].style.display = "none";
         }
         document.getElementById("line_detail").style.display = "none";
         }
         if (event.target.value == 'A'){
-        final = [{'line':'A'}]
         var n = [0,1,2,4]}
         else if (event.target.value == 'B'){
-        final = [{'line':'B'}]
         var n = [0,1,6,8]}
         else if (event.target.value == 'C'){
-        final = [{'line':'C'}]
         var n = [0,1,10,12]}
         else if (event.target.value == 'D'){
-        final = [{'line':'D'}]
         var n = [0,1,14,16]}
         else{
         var n = []
         document.getElementById("line_detail").style.display = "table"; }
-        axios.defaults.xsrfHeaderName = "X-CSRFToken";
-        axios.defaults.xsrfCookieName = 'csrftoken';    
-        axios.post('selected/', {
-            final
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
         for (var i of n){
         var column = "column"+i
         var list = document.getElementsByClassName(column)
@@ -595,46 +508,10 @@ document.getElementById(id).style.display = "table";
    <ControlledSelect/>,
    document.getElementById('select_line')
  )
- for (var i = 1 ; i < 89; i += 1) {
-   unit = document.getElementById(i).title;
-   var listOfObject = [];
-   for (var l, k = 0; k < data_c.length; k += 1) {
-     l = data_c[k]["fields"]["unit"];
-     if (unit === l) {
-       listOfObject.push(JSON.stringify(data_c[k]["fields"]));
-     }
-   }
-   document.getElementById(i).title = listOfObject;
- }
-
-
-
-
-function Component() {
-    
-  function handleClick() {
-window.location.href = "{% url 'index' %}";
-
-}   
-  return (
-    <div onClick={handleClick} style={{
-      textAlign: 'center',
-      width: '100px',
-      border: '1px solid gray',
-      borderRadius: '5px'
-    }}>
-      ثبت نهایی
-    </div>
-  );
-
-}
-
-
-
-ReactDOM.render(
-    <Component/>,
-    document.getElementById("button")
-)
+ 
+ 
+ 
+ 
  </script>
   </body>
 </html>

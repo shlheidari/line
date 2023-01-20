@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.urls import reverse
-from django.core import serializers
+from django.core import serializers 
 from .models import Members
 from .models import Capacity
+from .models import Selection
 import json
 
 def index(request):
@@ -35,3 +36,25 @@ def capacity(request):
     template = loader.get_template('capacity.html')
     context = {'myline': myline,'mycapacity': data,}
     return HttpResponse(template.render(context, request))
+
+def selected(request):
+    raw_data = request.body
+    body_unicode = raw_data.decode('utf-8')
+    body = json.loads(body_unicode)
+    key = list(body.keys())
+    if key[0] == 'sel':
+        if body['sel'][0]['c'] == '':
+            select = Selection(item = body['sel'][0]['a'], choice = body['sel'][0]['b'])
+            select.save()
+        else:
+            select = Selection.objects.get(item=body['sel'][0]['a'])
+            select.choice = body['sel'][0]['b']
+            select.save()
+    
+                  
+    else:
+        instance = Selection.objects.all()
+        instance.delete()
+        select = Selection(item = 'line', choice = body['final'][0]['line'])
+        select.save() 
+    return JsonResponse({"status": 'Success'})
