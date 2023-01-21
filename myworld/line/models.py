@@ -4,7 +4,6 @@ class Members(models.Model):
   name = models.CharField(max_length=255)
   gender = models.CharField(max_length=255)
   student_id = models.CharField(max_length=255)
-  password = models.CharField(max_length=255)
   start_time = models.CharField(max_length=255)
   end_time = models.CharField(max_length=255)
   line = models.CharField(max_length=255)

@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h1>what do you wish to do?</h1>
+<h1>uncomment loggedout_manual in views.py </h1>
 
 <p>
 <a href="member/">لیست سوابق</a>
@@ -12,9 +12,38 @@
 <a href="capacity/">جدول ظرفیت</a>
 </p>
 
-<p>
-<a href="select/">انتخاب لاین</a>
-</p>
+
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endif %}
+
+<form action="select/" method=POST>
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" value="ورود" class="btn btn-secondary">
+</form>
+<br><br><br>
+<form action="pas/" method=POST>
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" value="تغییر رمز عبور" class="btn btn-secondary">
+</form>
 
 </body>
 </html>

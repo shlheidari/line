@@ -341,6 +341,13 @@
   @page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   </style>
+  {{ user }}
+  <br>
+  {{ me.name }}
+    <br>
+  <p>
+  <a href="change_password/">تغییر رمز عبور</a>
+  </p>
   <div id="select_line"></div>
  
  <div id="line_detail"></div>
@@ -613,7 +620,7 @@ document.getElementById(id).style.display = "table";
 function Component() {
     
   function handleClick() {
-window.location.href = "{% url 'index' %}";
+window.location.href = "{% url 'loggedout_manual' %}";
 
 }   
   return (
@@ -635,6 +642,7 @@ ReactDOM.render(
     <Component/>,
     document.getElementById("button")
 )
+
  </script>
   </body>
 </html>
