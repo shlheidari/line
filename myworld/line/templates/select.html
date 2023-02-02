@@ -394,9 +394,9 @@ body {
   <br>
   {{ me.name }}
     <br>
-  <p>
-  <a href="change_password/">تغییر رمز عبور</a>
-  </p>
+    {{ me.gender }}
+      <br>
+
   <div id="select_line"></div>
  
  <div id="line_detail"></div>
@@ -552,7 +552,7 @@ if (data_s.length>2){
 if (data_s[0].fields.choice = {{ user }}){
 let num = 2
 while(num < data_s.length ){
-let e = {"srcElement":{"firstChild":{"offsetParent":"null"},"parentElement":{"parentElement":{"parentElement":{"nextSibling":{"lastElementChild":{"firstElementChild":{"innerHTML":""}}},"parentElement":{"parentElement":{"id":data_s[num].fields.iden,"firstChild":{"lastElementChild":{"firstChild":{"innerText":data_s[num].fields.item_fa}}}}}}}}},"target":{"innerHTML":data_s[num].fields.choice}}
+let e = {"srcElement":{"firstChild":{"offsetParent":"null"},"parentElement":{"parentElement":{"parentElement":{"nextSibling":{"lastElementChild":{"firstElementChild":{"innerHTML":""}}},"parentElement":{"parentElement":{"classList":[data_s[num].fields.line_c,],"id":data_s[num].fields.iden,"firstChild":{"lastElementChild":{"firstChild":{"innerText":data_s[num].fields.item_fa}}}}}}}}},"target":{"innerHTML":data_s[num].fields.choice}}
 window.addEventListener('load', clicked(e));
 num = num + 1
 }
@@ -587,9 +587,9 @@ var a = e.srcElement.parentElement.parentElement.parentElement.parentElement.par
 var b = e.target.innerHTML
 if (b == "هیچ کدام") {b = ""}
 var c = e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastElementChild.firstElementChild.innerHTML
-var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
-var line = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
 if (c == "هیچ کدام") {c = ""}
+var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
+var line_c = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
 
 if (a.includes("ارولوژی") || a.includes("ارتوپدی")){
 var form = "none"
@@ -610,7 +610,7 @@ var aa_3 = aa_1.replace("اول","دوم");
 }
 if ( b == "" ){
 for (var ii of getElementsByText(aa_3)){
-if (ii.classList[0] == line){var i_rep = ii}
+if (ii.classList[0] == line_c){var i_rep = ii}
 }
 if (i_rep.lastElementChild.lastElementChild.lastElementChild.innerText == "") {
 form = "table-cell"
@@ -619,21 +619,41 @@ form = "none"
 }
 }
 
-if ((line.match(/\d/g)[0])%4 == 0) {var line_num = Number((line.match(/\d/g)[0])) - 2
-} else {var line_num = Number((line.match(/\d/g)[0])) + 2}
-line = "column" + line_num
-console.log(line)
+if ((line_c.match(/\d/g)[0])%4 == 0) {var line_num = Number((line_c.match(/\d/g)[0])) - 2
+} else {var line_num = Number((line_c.match(/\d/g)[0])) + 2}
+line_c = "column" + line_num
 for (var ii of getElementsByText(aa_1)){
-if (ii.classList[0] == line){ii.style.display = form;}
+if (ii.classList[0] == line_c){ii.style.display = form;}
 }
 for (var ii of getElementsByText(aa_2)){
-if (ii.classList[0] == line){ii.style.display = form;}
+if (ii.classList[0] == line_c){ii.style.display = form;}
+}
+}
+var listofpack = ["نورولوژی/روانپزشکی/عفونی","بهداشت","بیهوشی"]
+for (var iii of listofpack){ if (a.includes(iii)) {
+for (var ii of getElementsByText(iii)){
+if (ii.classList[0] == line_c){
+
+var choose = b.split(' ')
+
+var pack_id = "t"+ii.id
+var revert =[]
+if ( c != "" ) { revert.push(c.split(' ')[0])}
+
+if ( b == "" ){
+form = "table-cell"
+choose = "هیچ کدام"
+} else {form = "none"}
+for (var tr of document.getElementById(pack_id).firstChild.children){
+if (tr.firstChild.innerHTML.includes(choose[0])) {tr.firstChild.style.display = form;}
+if (tr.firstChild.innerHTML.includes(revert[0])) {tr.firstChild.style.display = "table-cell";}
+}
+
+}
+}
 }
 }
 
-if (a.includes("نورولوژی") || a.includes("بهداشت") || a.includes("بیهوشی")){
-
-}
 
 
 let a_1 = a.replace('جراحی','surgery');
@@ -650,7 +670,7 @@ let a_11 = a_10.replace('دوم','two');
 let a_12 = a_11.replace('سوم','three');
 let d = a_12.replace('-','_');
 
-var sel = [{a,b,c,d,i}]
+var sel = [{a,b,c,d,i,line_c}]
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = 'csrftoken';    
 axios.post('selected/', {
@@ -674,7 +694,10 @@ document.getElementById(id).style.display = "table";
 
 }
 
-
+function Packshow(element){
+let e = {"srcElement":{"firstChild":{"offsetParent":"null"},"parentElement":{"parentElement":{"parentElement":{"nextSibling":{"lastElementChild":{"firstElementChild":{"innerHTML":element.firstChild.lastChild.lastChild.firstChild.innerHTML}}},"parentElement":{"parentElement":{"classList":element.classList,"id":element.id,"firstChild":{"lastElementChild":{"firstChild":{"innerText":element.firstChild.lastChild.firstChild.innerHTML}}}}}}}}},"target":{"innerHTML":"هیچ کدام"}}
+clicked(e)
+}
 
 
  class ControlledSelect extends React.Component{ 
@@ -691,13 +714,20 @@ document.getElementById(id).style.display = "table";
      }
      }
      }
+
      handleChange(event){
         for (var i = 0 ; i < 17 ; i += 1) {
         var column = "column"+i
         var list = document.getElementsByClassName(column)
+        var listofpack = ["نورولوژی/روانپزشکی/عفونی","بهداشت","بیهوشی"]
         for (var k = 0; k < list.length ; k += 1){
         if (document.getElementsByClassName(column)[k].getElementsByTagName('span').length == 2){
+        if (document.getElementsByClassName(column)[k].getElementsByTagName('span')[1].innerHTML != ''){
+        for (var pack of listofpack){
+        if(document.getElementsByClassName(column)[k].firstChild.lastChild.firstChild.innerHTML.includes(pack)){Packshow(document.getElementsByClassName(column)[k])}
+        }
         document.getElementsByClassName(column)[k].getElementsByTagName('span')[1].innerHTML = ''
+        }
         }
         document.getElementsByClassName(column)[k].style.display = "none";
         }

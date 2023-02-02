@@ -97,7 +97,7 @@ def selected(request):
                 if body['sel'][0]['b'] == '':
                     pass
                 else:
-                    select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'] )
+                    select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'], line_c = body['sel'][0]['line_c'])
                     select.save()
             else:
                 if body['sel'][0]['b'] == '':
@@ -111,9 +111,9 @@ def selected(request):
         else:
             instance = Selection.objects.all()
             instance.delete()
-            select = Selection(item_fa = 'user', item_en = 'user', choice = request.user, iden = request.user)
+            select = Selection(item_fa = 'user', item_en = 'user', choice = request.user, iden = request.user, line_c = request.user )
             select.save() 
-            select = Selection(item_fa = 'line', item_en = 'line', choice = body['final'][0]['line'], iden = body['final'][0]['line'])
+            select = Selection(item_fa = 'line', item_en = 'line', choice = body['final'][0]['line'], iden = body['final'][0]['line'] , line_c = body['final'][0]['line'])
             select.save() 
         return JsonResponse({"status": 'Success'})
     else:

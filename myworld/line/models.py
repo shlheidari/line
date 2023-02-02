@@ -50,3 +50,4 @@ class Selection(models.Model):
     item_en = models.CharField(max_length=255)
     choice = models.CharField(max_length=255)
     iden = models.CharField(max_length=255)
+    line_c = models.CharField(max_length=255)
