@@ -26,6 +26,7 @@ class Members(models.Model):
   pack_three = models.CharField(max_length=255)
 
 class Capacity(models.Model):
+    gender = models.CharField(max_length=255)
     line = models.CharField(max_length=255)
     unit = models.CharField(max_length=255)
     hospital = models.CharField(max_length=255)
