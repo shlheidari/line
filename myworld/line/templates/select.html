@@ -320,6 +320,63 @@ table.sheet0 tr.row93 { height:15.75pt }
 table.sheet0 tr.row94 { height:15.75pt }
 table.sheet0 tr.row97 { height:15.75pt }
 table.sheet0 tr.row98 { height:15.75pt }
+
+body {
+  font-family: sans-serif;
+}
+
+.base-timer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
 </style>
        <meta charset="UTF-8">
        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
@@ -332,6 +389,7 @@ table.sheet0 tr.row98 { height:15.75pt }
   @page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 1in; margin-bottom: 1in; }
   </style>
+  <div id="timerr"></div>
   {{ user }}
   <br>
   {{ me.name }}
@@ -381,7 +439,7 @@ var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
 var data_c = JSON.parse(mycapacity_replaced);
 function Detail(props){
 if (props.id != ""){
-var listOfObjects= ['t'+props.id]
+var listOfObjects= ['t'+props.id,{'hospital':'هیچ کدام'}]
 for (var l, k = 0; k < data_c.length; k += 1) {
   l = data_c[k]["fields"]["unit"];
   if (props.title === l && data_c[k]["fields"]["remain"] > 0 && data_c[k]["fields"]["hospital"]  != "All") {
@@ -391,7 +449,7 @@ for (var l, k = 0; k < data_c.length; k += 1) {
 }
 
 } 
-if (listOfObjects == undefined || listOfObjects.length < 2){
+if (listOfObjects == undefined || listOfObjects.length < 3){
 return(<span></span>)
 } else {
 var de = listOfObjects[0]
@@ -502,7 +560,16 @@ num = num + 1
 }
 }
 
-
+function getElementsByText(word) {
+    var res = []
+    var elems = [...document.getElementsByTagName('td')];
+    elems.forEach((elem) => { 
+        if(elem.outerHTML.includes(word)) {
+            res.push(elem)
+        }
+    })
+    return(res)
+}
 
 
 function clicked(e) {
@@ -518,8 +585,57 @@ ev = e.srcElement.firstChild.parentElement.offsetParent
 if (ev == null || ev == "null"){
 var a = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.firstChild.lastElementChild.firstChild.innerText
 var b = e.target.innerHTML
+if (b == "هیچ کدام") {b = ""}
 var c = e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastElementChild.firstElementChild.innerHTML
 var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
+var line = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
+if (c == "هیچ کدام") {c = ""}
+
+if (a.includes("ارولوژی") || a.includes("ارتوپدی")){
+var form = "none"
+if (a.includes("ارتوپدی")){
+var aa_1 = a.replace("ارتوپدی","ارولوژی");
+} else {
+var aa_1 = a.replace("ارولوژی","ارتوپدی");
+}
+if (a.includes("دوم")){
+var aa_2 = a.replace("دوم","اول");
+} else {
+var aa_2 = a.replace("اول","دوم");
+}
+if (aa_1.includes("دوم")){
+var aa_3 = aa_1.replace("دوم","اول");
+} else {
+var aa_3 = aa_1.replace("اول","دوم");
+}
+if ( b == "" ){
+for (var ii of getElementsByText(aa_3)){
+if (ii.classList[0] == line){var i_rep = ii}
+}
+if (i_rep.lastElementChild.lastElementChild.lastElementChild.innerText == "") {
+form = "table-cell"
+} else{
+form = "none"
+}
+}
+
+if ((line.match(/\d/g)[0])%4 == 0) {var line_num = Number((line.match(/\d/g)[0])) - 2
+} else {var line_num = Number((line.match(/\d/g)[0])) + 2}
+line = "column" + line_num
+console.log(line)
+for (var ii of getElementsByText(aa_1)){
+if (ii.classList[0] == line){ii.style.display = form;}
+}
+for (var ii of getElementsByText(aa_2)){
+if (ii.classList[0] == line){ii.style.display = form;}
+}
+}
+
+if (a.includes("نورولوژی") || a.includes("بهداشت") || a.includes("بیهوشی")){
+
+}
+
+
 let a_1 = a.replace('جراحی','surgery');
 let a_2 = a_1.replace('داخلی','internal');
 let a_3 = a_2.replace('کودکان','pediatrics');
@@ -553,7 +669,11 @@ var id = "t"+ev['id']
 document.getElementById(id).style.display = "table";
 }
 
+
+
+
 }
+
 
 
 
@@ -677,7 +797,124 @@ ReactDOM.render(
 )
 
 
+	const FULL_DASH_ARRAY = 283;
+	const WARNING_THRESHOLD = 10;
+	const ALERT_THRESHOLD = 5;
 
+	const COLOR_CODES = {
+	  info: {
+	    color: "green"
+	  },
+	  warning: {
+	    color: "orange",
+	    threshold: WARNING_THRESHOLD
+	  },
+	  alert: {
+	    color: "red",
+	    threshold: ALERT_THRESHOLD
+	  }
+	};
+	var now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Tehran' })
+	var now_t= new Date(now).getTime();
+	var now_n= new Date("{{ me.end_time }}").getTime();
+
+	const TIME_LIMIT = (now_n - now_t)/1000;
+	let timePassed = 0;
+	let timeLeft = TIME_LIMIT;
+	let timerInterval = null;
+	let remainingPathColor = COLOR_CODES.info.color;
+
+	document.getElementById("timerr").innerHTML = `
+	<div class="base-timer">
+	  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+	    <g class="base-timer__circle">
+	      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+	      <path
+	        id="base-timer-path-remaining"
+	        stroke-dasharray="283"
+	        class="base-timer__path-remaining ${remainingPathColor}"
+	        d="
+	          M 50, 50
+	          m -45, 0
+	          a 45,45 0 1,0 90,0
+	          a 45,45 0 1,0 -90,0
+	        "
+	      ></path>
+	    </g>
+	  </svg>
+	  <span id="base-timer-label" class="base-timer__label">${formatTime(
+	    timeLeft
+	  )}</span>
+	</div>
+	`;
+
+	startTimer();
+
+	function onTimesUp() {
+	  clearInterval(timerInterval);
+	}
+
+	function startTimer() {
+	  timerInterval = setInterval(() => {
+	    timePassed = timePassed += 1;
+	    timeLeft = TIME_LIMIT - timePassed;
+	    document.getElementById("base-timer-label").innerHTML = formatTime(
+	      timeLeft
+	    );
+	    setCircleDasharray();
+	    setRemainingPathColor(timeLeft);
+
+	    if (timeLeft === 0) {
+	      onTimesUp();
+	    }
+	  }, 1000);
+	}
+
+	function formatTime(time) {
+	  const minutes = Math.floor(time / 60);
+	  let seconds = time % 60;
+
+	  if (seconds < 10) {
+	    seconds = `0${seconds}`;
+	  }
+
+	  return `${minutes}:${seconds}`;
+	}
+
+	function setRemainingPathColor(timeLeft) {
+	  const { alert, warning, info } = COLOR_CODES;
+	  if (timeLeft <= alert.threshold) {
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.remove(warning.color);
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.add(alert.color);
+	  } else if (timeLeft <= warning.threshold) {
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.remove(info.color);
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.add(warning.color);
+	  }
+	}
+
+	function calculateTimeFraction() {
+	  const rawTimeFraction = timeLeft / TIME_LIMIT;
+	  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+	}
+
+	function setCircleDasharray() {
+	  const circleDasharray = `${(
+
+
+	    calculateTimeFraction() * FULL_DASH_ARRAY
+	  ).toFixed(0)} 283`;
+	  document
+	    .getElementById("base-timer-path-remaining")
+	    .setAttribute("stroke-dasharray", circleDasharray);
+	}
 
 
 

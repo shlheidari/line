@@ -94,12 +94,20 @@ def selected(request):
         key = list(body.keys())
         if key[0] == 'sel':
             if body['sel'][0]['c'] == '':
-                select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'] )
-                select.save()
+                if body['sel'][0]['b'] == '':
+                    pass
+                else:
+                    select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'] )
+                    select.save()
             else:
-                select = Selection.objects.get(item_fa=body['sel'][0]['a'])
-                select.choice = body['sel'][0]['d']
-                select.save()                  
+                if body['sel'][0]['b'] == '':
+                    select = Selection.objects.get(item_fa=body['sel'][0]['a'])
+                    select.delete()
+                else:
+                    select = Selection.objects.get(item_fa=body['sel'][0]['a'])
+                    select.choice = body['sel'][0]['b']
+                    select.save()
+                                 
         else:
             instance = Selection.objects.all()
             instance.delete()
@@ -151,6 +159,10 @@ def register(me):
                 setattr(capacity_sel, 'remain', remain_select)
                 capacity_sel.save()
                 me.save() 
+                
+                if item_en == "gynocology" and hospital_sel == "بهارلو" and capacity_sel.gender == "":
+                    setattr(capacity_sel, 'gender', me.gender)
+                    capacity_sel.save()
           
     instance = Selection.objects.all()
     instance.delete()

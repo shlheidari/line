@@ -28,5 +28,3 @@ class OneSessionPerUserMiddleware:
         # For this tutorial, we're not adding any code so we just return the response
 
         return response
-    
-    
