@@ -397,6 +397,7 @@ body {
     {{ me.gender }}
       <br>
 
+  <br>
   <div id="select_line"></div>
  
  <div id="line_detail"></div>
@@ -590,7 +591,6 @@ var c = e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastE
 if (c == "هیچ کدام") {c = ""}
 var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
 var line_c = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
-
 if (a.includes("ارولوژی") || a.includes("ارتوپدی")){
 var form = "none"
 if (a.includes("ارتوپدی")){
@@ -681,6 +681,10 @@ axios.post('selected/', {
   })
   .catch(function (error) {
     console.log(error);
+    if (error.response.data.message != "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید"){error.response.data.message = "خطایی در ارتباط با سرور رخ داده، مجددا وارد شوید"}
+    window.alert(error.response.data.message);
+    window.location.href = "{% url 'index' %}";
+    
   });
 document.getElementById(i).firstElementChild.lastElementChild.lastElementChild.firstElementChild.innerHTML = b
 
@@ -758,6 +762,9 @@ clicked(e)
           })
           .catch(function (error) {
             console.log(error);
+            if (error.response.data.message != "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید"){error.response.data.message = "خطایی در ارتباط با سرور رخ داده، مجددا وارد شوید"}
+            window.alert(error.response.data.message);
+            window.location.href = "{% url 'index' %}";
           });
         for (var i of n){
         var column = "column"+i
@@ -895,7 +902,7 @@ ReactDOM.render(
 	    setRemainingPathColor(timeLeft);
 
 	    if (timeLeft === 0) {
-	      onTimesUp();
+	      window.location.href = "{% url 'index' %}";
 	    }
 	  }, 1000);
 	}

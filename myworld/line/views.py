@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
+from django.contrib.sessions.models import Session
 from .models import Members
 from .models import Capacity
 from .models import Selection
@@ -62,6 +63,7 @@ def select(request):
                     register(me)
                 thread.start_new_thread( fun_one, (end_t,me) )
                 return HttpResponse(template.render(context, request))
+
                     
                
             else:
@@ -87,37 +89,42 @@ def capacity(request):
     return HttpResponse(template.render(context, request))
 
 def selected(request):
-    if request.method == "POST":
-        raw_data = request.body
-        body_unicode = raw_data.decode('utf-8')
-        body = json.loads(body_unicode)
-        key = list(body.keys())
-        if key[0] == 'sel':
-            if body['sel'][0]['c'] == '':
-                if body['sel'][0]['b'] == '':
-                    pass
+    print(request.session.session_key)
+    if (request.session.session_key != None):
+        if request.method == "POST":
+            raw_data = request.body
+            body_unicode = raw_data.decode('utf-8')
+            body = json.loads(body_unicode)
+            key = list(body.keys())
+            if key[0] == 'sel':
+                if body['sel'][0]['c'] == '':
+                    if body['sel'][0]['b'] == '':
+                        pass
+                    else:
+                        select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'], line_c = body['sel'][0]['line_c'])
+                        select.save()
                 else:
-                    select = Selection(item_fa = body['sel'][0]['a'], item_en = body['sel'][0]['d'], choice = body['sel'][0]['b'], iden = body['sel'][0]['i'], line_c = body['sel'][0]['line_c'])
-                    select.save()
+                    if body['sel'][0]['b'] == '':
+                        select = Selection.objects.get(item_fa=body['sel'][0]['a'])
+                        select.delete()
+                    else:
+                        select = Selection.objects.get(item_fa=body['sel'][0]['a'])
+                        select.choice = body['sel'][0]['b']
+                        select.save()
+                                     
             else:
-                if body['sel'][0]['b'] == '':
-                    select = Selection.objects.get(item_fa=body['sel'][0]['a'])
-                    select.delete()
-                else:
-                    select = Selection.objects.get(item_fa=body['sel'][0]['a'])
-                    select.choice = body['sel'][0]['b']
-                    select.save()
-                                 
+                instance = Selection.objects.all()
+                instance.delete()
+                select = Selection(item_fa = 'user', item_en = 'user', choice = request.user, iden = request.user, line_c = request.user )
+                select.save() 
+                select = Selection(item_fa = 'line', item_en = 'line', choice = body['final'][0]['line'], iden = body['final'][0]['line'] , line_c = body['final'][0]['line'])
+                select.save() 
+            return JsonResponse({'status': 'OK'}, status=200)
         else:
-            instance = Selection.objects.all()
-            instance.delete()
-            select = Selection(item_fa = 'user', item_en = 'user', choice = request.user, iden = request.user, line_c = request.user )
-            select.save() 
-            select = Selection(item_fa = 'line', item_en = 'line', choice = body['final'][0]['line'], iden = body['final'][0]['line'] , line_c = body['final'][0]['line'])
-            select.save() 
-        return JsonResponse({"status": 'Success'})
+            return JsonResponse({"error": "not found"}, status=404)
     else:
-        return JsonResponse({"status": 'Failed'})
+        return JsonResponse({"error": "not found", 'message': 'شخص دیگری وارد اکانت شما شده، مجددا وارد شوید'}, status=404)
+    
 
 def loggedout_manual(request):
     me =  Members.objects.get(student_id=request.user)
@@ -180,6 +187,7 @@ def pas(request):
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('index')
+
 
 # def userdata(request):
 #     with open(r"C:\Users\So\Desktop\program\project\line\myworld\line\templates\csv\your_file.csv") as csv_file:
