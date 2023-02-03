@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+          <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+          <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.1.7/antd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.1.7/reset.min.css"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.1.7/antd.min.js.map"></script>
+
+<body>
+
+<h1>uncomment loggedout_manual in views.py </h1>
+
+<p>
+<a href="member/">لیست سوابق</a>
+</p>
+
+<p>
+<a href="capacity/">جدول ظرفیت</a>
+</p>
+
+
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endif %}
+
+<form action="select/" method=POST>
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" value="ورود" class="btn btn-secondary">
+</form>
+<br><br><br>
+<form action="pas/" method=POST>
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" value="تغییر رمز عبور" class="btn btn-secondary">
+</form>
+<div id="root"></div>
+
+<script type="text/babel">
+import React from 'react';
+import { Button, Space } from 'antd';
+console.log(Button)
+const App: React.FC = () => (
+  <Space wrap>
+    <Button type="primary">Primary Button</Button>
+    <Button>Default Button</Button>
+    <Button type="dashed">Dashed Button</Button>
+    <Button type="text">Text Button</Button>
+    <Button type="link">Link Button</Button>
+  </Space>
+);
+
+ReactDOM.render(
+    <App/>,
+    document.getElementById("root")
+)
+</script>
+</body>
+</html>

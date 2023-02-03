@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
 <body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 
 <h1>uncomment loggedout_manual in views.py </h1>
-
-<p>
-<a href="member/">لیست سوابق</a>
-</p>
-
-<p>
-<a href="capacity/">جدول ظرفیت</a>
-</p>
-
 
 {% if messages %}
   {% for message in messages %}
     {{ message }}
   {% endfor %}
 {% endif %}
+<br><br>
+<a href = "{% url 'member' %}"><button class = "btn peach-gradient">لیست سوابق</button></a>
+<br><br>
+<a href = "{% url 'capacity' %}"><button class = "btn purple-gradient">لیست ظرفیت ها</button></a>
+<br><br>
+<button onclick=hid("logi") class = "btn blue-gradient">انتخاب لاین</button>
+<br><br>
+<button onclick=hid("chan") class = "btn aqua-gradient">تغییر رمز عبور</button>
+<br><br>
 
+<div id= "logi" style="display:none;">
 <form action="select/" method=POST>
 {% csrf_token %}
   <div class="mb-3">
@@ -31,7 +36,11 @@
   </div>
   <input type="submit" value="ورود" class="btn btn-secondary">
 </form>
+</div>
+
 <br><br><br>
+
+<div id= "chan" style="display:none;">
 <form action="pas/" method=POST>
 {% csrf_token %}
   <div class="mb-3">
@@ -44,6 +53,14 @@
   </div>
   <input type="submit" value="تغییر رمز عبور" class="btn btn-secondary">
 </form>
+</div>
 
+<script>
+var hid = (a) => {
+document.getElementById("logi").style.display ="none";
+document.getElementById("chan").style.display ="none";
+document.getElementById(a).style.display ="inline";
+}
+</script>
 </body>
 </html>

@@ -321,9 +321,12 @@ table.sheet0 tr.row97 { height:15.75pt }
 table.sheet0 tr.row98 { height:15.75pt }
 </style>
        <meta charset="UTF-8">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 
 <body>
@@ -331,7 +334,8 @@ table.sheet0 tr.row98 { height:15.75pt }
 @page { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
 body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
 </style>
-<a href="{% url 'index' %}">first page</a>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br><br>
 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
 <col class="col0">
 <col class="col1">
@@ -353,7 +357,9 @@ body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-botto
 <col class="col17">
       <div id="root"></div>
  </table>
- <a href="{% url 'index' %}">first page</a>
+ <br><br>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br><br>
       <script type="text/babel">
       const { useState } = React
 
@@ -395,11 +401,18 @@ ReactDOM.render(
  
  for (var i = 1 ; i < 93; i += 1) {
    unit = document.getElementById(i).title;
-   var listOfObjects = [];
-   for (var l, k = 0; k < data_c.length; k += 1) {
+  var listOfObjects = []
+   for (var l, k = 1; k < data_c.length; k += 1) {
+      
      l = data_c[k]["fields"]["unit"];
      if (unit === l) {
-       listOfObjects.push(JSON.stringify(data_c[k]["fields"]));
+       let bimarestan = data_c[k]["fields"]["hospital"];
+       let baghimande = data_c[k]["fields"]["remain"];
+       let kol = data_c[k]["fields"]["full"];
+       if (listOfObjects.length>0){
+       listOfObjects.push("\n")
+        listOfObjects.push(`${bimarestan}:  ${baghimande} از ${kol}`);
+        } else { var listOfObjects = [`${bimarestan}:  ${baghimande} از ${kol}`];}
      }
    }
    document.getElementById(i).title = listOfObjects;

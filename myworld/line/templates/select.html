@@ -383,6 +383,10 @@ body {
        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
        <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   </head>
   <body>
   <style>
@@ -519,7 +523,7 @@ ReactDOM.render(
 const Appl = () => {
     const [tables, setTables] = useState(listOflines);
       return (  
-       <table> 
+       <table class="table table-striped" width="10%"> 
        <thead>
        <tr>
        <th>لاین</th>
@@ -794,14 +798,21 @@ clicked(e)
  )
  for (var i = 1 ; i < 93; i += 1) {
    unit = document.getElementById(i).title;
-   var listOfObject = [];
-   for (var l, k = 0; k < data_c.length; k += 1) {
+  var listOfObjects = []
+   for (var l, k = 1; k < data_c.length; k += 1) {
+      
      l = data_c[k]["fields"]["unit"];
      if (unit === l) {
-       listOfObject.push(JSON.stringify(data_c[k]["fields"]));
+       let bimarestan = data_c[k]["fields"]["hospital"];
+       let baghimande = data_c[k]["fields"]["remain"];
+       let kol = data_c[k]["fields"]["full"];
+       if (listOfObjects.length>0){
+       listOfObjects.push("\n")
+        listOfObjects.push(`${bimarestan}:  ${baghimande} از ${kol}`);
+        } else { var listOfObjects = [`${bimarestan}:  ${baghimande} از ${kol}`];}
      }
    }
-   document.getElementById(i).title = listOfObject;
+   document.getElementById(i).title = listOfObjects;
  }
 
 
