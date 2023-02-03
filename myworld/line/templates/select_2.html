@@ -471,9 +471,8 @@ var listOfObjects= ['t'+props.id,{'hospital':'هیچ کدام'}]
 for (var l, k = 0; k < data_c.length; k += 1) {
   l = data_c[k]["fields"]["unit"];
   if (props.title === l && data_c[k]["fields"]["remain"] > 0 && data_c[k]["fields"]["hospital"]  != "All") {
-  if (data_c[k]["fields"]["gender"] == "" || data_c[k]["fields"]["gender"] == "{{ me.gender }}"){
     listOfObjects.push(data_c[k]["fields"])
-    }
+    
   }
 }
 
@@ -576,9 +575,7 @@ ReactDOM.render(
  for (var i = 1 ; i < 93; i += 1) {
    document.getElementById(i).addEventListener('click', clicked);
  }
- 
 window.onload = function(){
-console.log(data_s)
 if (data_s.length>2){
 if (data_s[0].fields.choice = {{ user }}){
 let num = 2
@@ -622,7 +619,6 @@ if (c == "هیچ کدام") {c = ""}
 var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
 var line_c = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
 if (a.includes("ارولوژی") || a.includes("ارتوپدی")){
-console.log(a,line_c)
 var form = "none"
 if (a.includes("ارتوپدی")){
 var aa_1 = a.replace("ارتوپدی","ارولوژی");
@@ -650,15 +646,14 @@ form = "none"
 }
 }
 
-if ((Number(line_c.replace('column','')))%4 == 0) {var line_num = Number(line_c.replace('column','')) - 2
-} else {var line_num = Number(line_c.replace('column','')) + 2}
-var line_cc = "column" + line_num
-
+if ((line_c.match(/\d/g)[0])%4 == 0) {var line_num = Number((line_c.match(/\d/g)[0])) - 2
+} else {var line_num = Number((line_c.match(/\d/g)[0])) + 2}
+line_c = "column" + line_num
 for (var ii of getElementsByText(aa_1)){
-if (ii.classList[0] == line_cc){ii.style.display = form;}
+if (ii.classList[0] == line_c){ii.style.display = form;}
 }
 for (var ii of getElementsByText(aa_2)){
-if (ii.classList[0] == line_cc){ii.style.display = form;}
+if (ii.classList[0] == line_c){ii.style.display = form;}
 }
 }
 var listofpack = ["نورولوژی/روانپزشکی/عفونی","بهداشت","بیهوشی"]
@@ -666,22 +661,18 @@ for (var iii of listofpack){ if (a.includes(iii)) {
 for (var ii of getElementsByText(iii)){
 if (ii.classList[0] == line_c){
 
-var choose = b.split(' ')[0]
-if (choose == "طب") {choose = "طب اورژانس"}
+var choose = b.split(' ')
+
 var pack_id = "t"+ii.id
 var revert =[]
-if ( c != "" ) {
-if (c.split(' ')[0] == "طب") {revert.push("طب اورژانس")
-} else{ revert.push(c.split(' ')[0])}
-
- }
+if ( c != "" ) { revert.push(c.split(' ')[0])}
 
 if ( b == "" ){
 form = "table-cell"
 choose = "هیچ کدام"
 } else {form = "none"}
 for (var tr of document.getElementById(pack_id).firstChild.children){
-if (tr.firstChild.innerHTML.includes(choose)) {tr.firstChild.style.display = form;}
+if (tr.firstChild.innerHTML.includes(choose[0])) {tr.firstChild.style.display = form;}
 if (tr.firstChild.innerHTML.includes(revert[0])) {tr.firstChild.style.display = "table-cell";}
 }
 
@@ -786,7 +777,6 @@ clicked(e)
         final = [{'line':'D'}]
         var n = [0,1,14,16]}
         else{
-        final = [{'line':'N'}]
         var n = []
         document.getElementById("line_detail").style.display = "table"; }
         axios.defaults.xsrfHeaderName = "X-CSRFToken";

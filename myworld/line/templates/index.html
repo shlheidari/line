@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>انتخاب لاین ورودی ۹۸</title>
+{% load static %}
+<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script rel="stylesheet" type="text/javascript" src="{% static 'script_index.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style_index.css' %}">
+</head>
 <body>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
 
-<h1>uncomment loggedout_manual in views.py </h1>
-
 {% if messages %}
+<div class="alert alert-warning" role="alert">
   {% for message in messages %}
     {{ message }}
   {% endfor %}
+</div>
 {% endif %}
-<br><br>
-<a href = "{% url 'member' %}"><button class = "btn peach-gradient">لیست سوابق</button></a>
-<br><br>
-<a href = "{% url 'capacity' %}"><button class = "btn purple-gradient">لیست ظرفیت ها</button></a>
-<br><br>
-<button onclick=hid("logi") class = "btn blue-gradient">انتخاب لاین</button>
-<br><br>
-<button onclick=hid("chan") class = "btn aqua-gradient">تغییر رمز عبور</button>
-<br><br>
 
-<div id= "logi" style="display:none;">
-<form action="select/" method=POST>
-{% csrf_token %}
-  <div class="mb-3">
-    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
-    <input type="text" class="form-control" name="username">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  <input type="submit" value="ورود" class="btn btn-secondary">
-</form>
+<br><br>
+<div class="center" >
+<div>
+<a href = "{% url 'member' %}"><button class="btn btn-primary btn-lg"">لیست سوابق</button></a>
+</div>
+<br>
+<div>
+<a href = "{% url 'capacity' %}"><button class="btn btn-info btn-lg">لیست ظرفیت ها</button></a>
+</div>
+<br>
+<div>
+<button onclick=sho("logi") class="btn btn-success btn-lg">انتخاب لاین</button>
+</div>
+<br>
+<div>
+<button onclick=sho("chan") class="btn btn-warning btn-lg">تغییر رمز عبور</button>
+</div>
+<br>
 </div>
 
-<br><br><br>
-
-<div id= "chan" style="display:none;">
-<form action="pas/" method=POST>
-{% csrf_token %}
-  <div class="mb-3">
-    <label for="exampleInputUsername" class="form-label">نام کاربری</label>
-    <input type="text" class="form-control" name="username">
+<div id= "logi" class="login-page" style="display:none;">
+  <div class="form">
+    <form class="login-form" action="select/" method=POST>
+    {% csrf_token %}
+    <button onclick=hid("logi") type="button" class="btn-close" aria-label="Close"></button>
+      <input type="text" name="username" placeholder="نام کاربری"/>
+      <input type="password" name="password" placeholder="کلمه عبور"/>
+      <button type="submit" class="lbutton" >ورود به بخش انتخاب لاین</button>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword" class="form-label">رمز عبور</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  <input type="submit" value="تغییر رمز عبور" class="btn btn-secondary">
-</form>
 </div>
 
-<script>
-var hid = (a) => {
-document.getElementById("logi").style.display ="none";
-document.getElementById("chan").style.display ="none";
-document.getElementById(a).style.display ="inline";
-}
-</script>
+<div id= "chan" class="login-page" style="display:none;">
+<div class="form">
+  <form class="login-form" action="pas/" method=POST>
+{% csrf_token %}
+<button onclick=hid("chan") type="button" class="btn-close" aria-label="Close"></button>
+  <input type="text" name="username" placeholder="نام کاربری"/>
+      <input type="password" name="password" placeholder="کلمه عبور"/>
+      <button type="submit" class="cbutton" >تغییر رمز عبور</button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
