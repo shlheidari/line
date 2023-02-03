@@ -451,10 +451,9 @@ body {
       <script type="text/babel">
 
       const { useState } = React
-      fetch("{% static 'data_l.json' %}").then(response => {
-        return response.json();
-      }).then(data => {
-      var data_l = data
+  var myline = '{{ myline }}'
+  var myline_replaced = myline.replace(/&quot;/g,'"')
+  var data_l = JSON.parse(myline_replaced);
 var final = [{}]
 var myselection = '{{ myselection }}'
 var myselection_replaced = myselection.replace(/&quot;/g,'"')
@@ -997,9 +996,6 @@ ReactDOM.render(
 	    .setAttribute("stroke-dasharray", circleDasharray);
 	}
 
-}).catch(err => {
-  console.log('error');
-});
 
 
  </script>
